@@ -23,7 +23,11 @@ Thumbs.db
 # ML artifacts
 backend/app/ml/artifacts/*
 !backend/app/ml/artifacts/.gitkeep
-database_backups/
 
-# Local backup machine configuration
+# Local database backups and secrets
+database_backups/
 scripts/backup/backup-settings.local.json
+
+# Local deployment machine configuration and runtime state
+scripts/deployment/deployment-settings.local.json
+runtime/

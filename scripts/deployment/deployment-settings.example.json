@@ -1,0 +1,30 @@
+{
+  "Backend": {
+    "Host": "127.0.0.1",
+    "Port": 8000,
+    "HealthUrl": "http://127.0.0.1:8000/api/v1/health",
+    "StartupTimeoutSeconds": 60
+  },
+  "Frontend": {
+    "Host": "127.0.0.1",
+    "Port": 5173,
+    "HealthUrl": "http://127.0.0.1:5173",
+    "BuildOnStart": false,
+    "StartupTimeoutSeconds": 30
+  },
+  "MySQL": {
+    "Host": "127.0.0.1",
+    "Port": 3306,
+    "ServiceName": "",
+    "StartupTimeoutSeconds": 60,
+    "XamppMysqld": "C:\\xampp\\mysql\\bin\\mysqld.exe",
+    "XamppMyIni": "C:\\xampp\\mysql\\bin\\my.ini"
+  },
+  "Monitor": {
+    "IntervalSeconds": 30,
+    "RestartDelaySeconds": 3
+  },
+  "Task": {
+    "StartupDelaySeconds": 30
+  }
+}
