@@ -324,6 +324,7 @@ def edit_disease_case(
             db=db,
             disease_case=disease_case,
             data=data,
+            updated_by=current_user.id,
         )
 
     except ValueError as exc:

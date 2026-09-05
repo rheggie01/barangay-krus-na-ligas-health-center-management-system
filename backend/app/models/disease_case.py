@@ -135,6 +135,16 @@ class DiseaseCase(Base):
         nullable=True,
     )
 
+    validated_by_name_snapshot: Mapped[str | None] = mapped_column(
+        String(201),
+        nullable=True,
+    )
+
+    validated_by_role_snapshot: Mapped[str | None] = mapped_column(
+        String(255),
+        nullable=True,
+    )
+
     validated_at: Mapped[datetime | None] = mapped_column(
         DateTime,
         nullable=True,
@@ -149,6 +159,16 @@ class DiseaseCase(Base):
         ForeignKey(
             "users.id",
         ),
+        nullable=True,
+    )
+
+    recorded_by_name_snapshot: Mapped[str | None] = mapped_column(
+        String(201),
+        nullable=True,
+    )
+
+    recorded_by_role_snapshot: Mapped[str | None] = mapped_column(
+        String(255),
         nullable=True,
     )
 

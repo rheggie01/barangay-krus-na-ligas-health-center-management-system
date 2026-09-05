@@ -24,18 +24,10 @@ if TYPE_CHECKING:
 class PatientMedicalHistory(Base):
     __tablename__ = "patient_medical_histories"
 
-    # =====================================================
-    # PRIMARY KEY
-    # =====================================================
-
     id: Mapped[int] = mapped_column(
         primary_key=True,
         index=True,
     )
-
-    # =====================================================
-    # PATIENT
-    # =====================================================
 
     patient_id: Mapped[int] = mapped_column(
         ForeignKey(
@@ -45,10 +37,6 @@ class PatientMedicalHistory(Base):
         nullable=False,
         index=True,
     )
-
-    # =====================================================
-    # HISTORY INFORMATION
-    # =====================================================
 
     history_type: Mapped[str] = mapped_column(
         String(50),
@@ -60,28 +48,26 @@ class PatientMedicalHistory(Base):
         nullable=False,
     )
 
-    # =====================================================
-    # AUDIT INFORMATION
-    # =====================================================
-
     recorded_by: Mapped[int | None] = mapped_column(
         ForeignKey("users.id"),
         nullable=True,
     )
 
-    # =====================================================
-    # TIMESTAMP
-    # =====================================================
+    recorded_by_name_snapshot: Mapped[str | None] = mapped_column(
+        String(201),
+        nullable=True,
+    )
+
+    recorded_by_role_snapshot: Mapped[str | None] = mapped_column(
+        String(255),
+        nullable=True,
+    )
 
     recorded_at: Mapped[datetime] = mapped_column(
         DateTime,
         server_default=func.now(),
         nullable=False,
     )
-
-    # =====================================================
-    # ORM RELATIONSHIPS
-    # =====================================================
 
     patient: Mapped["Patient"] = relationship(
         "Patient",

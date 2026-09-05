@@ -11,7 +11,6 @@ from app.api.dependencies import (
     get_db,
     require_permission,
 )
-from app.models.audit_log import AuditLog
 from app.models.disease import Disease
 from app.models.user import User
 from app.ml.services.prediction_log_service import (
@@ -27,6 +26,9 @@ from app.services.consultation_service import (
     get_consultation_by_id,
     get_patient_consultations,
     update_consultation,
+)
+from app.services.audit_log_service import (
+    create_audit_log,
 )
 from app.services.patient_service import (
     get_patient_by_id,
@@ -292,30 +294,27 @@ def add_consultation(
                 )
             )
 
-            db.add(
-                AuditLog(
-                    user_id=current_user.id,
-                    role_names=get_user_role_names(
-                        current_user
-                    ),
-                    action=(
-                        "RECORD_DISEASE_PREDICTION"
-                    ),
-                    module="ML_DECISION_SUPPORT",
-                    record_id=consultation.id,
-                    description=(
-                        "Recorded a synthetic-development "
-                        "ML disease decision-support analysis "
-                        "together with consultation "
-                        f"#{consultation.id}. "
-                        "Top result: "
-                        f"{prediction_log.predicted_disease_code} "
-                        f"({prediction_log.top_probability:.4f}). "
-                        "No diagnosis or disease case "
-                        "was automatically created."
-                    ),
-                    ip_address=None,
-                )
+            create_audit_log(
+                db,
+                action="RECORD_DISEASE_PREDICTION",
+                module="ML_DECISION_SUPPORT",
+                user=current_user,
+                record_id=consultation.id,
+                subject_label_snapshot=(
+                    f"Consultation #{consultation.id}"
+                ),
+                description=(
+                    "Recorded a synthetic-development "
+                    "ML disease decision-support analysis "
+                    "together with consultation "
+                    f"#{consultation.id}. "
+                    "Top result: "
+                    f"{prediction_log.predicted_disease_code} "
+                    f"({prediction_log.top_probability:.4f}). "
+                    "No diagnosis or disease case "
+                    "was automatically created."
+                ),
+                ip_address=None,
             )
 
             db.commit()
@@ -487,6 +486,7 @@ def edit_consultation(
             db,
             consultation,
             data,
+            updated_by=current_user.id,
         )
     except ValueError as exc:
         raise HTTPException(

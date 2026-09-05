@@ -64,6 +64,16 @@ class ConsultationMedicine(Base):
         nullable=True,
     )
 
+    dispensed_by_name_snapshot: Mapped[str | None] = mapped_column(
+        String(201),
+        nullable=True,
+    )
+
+    dispensed_by_role_snapshot: Mapped[str | None] = mapped_column(
+        String(255),
+        nullable=True,
+    )
+
     dispensed_at: Mapped[datetime] = mapped_column(
         DateTime,
         server_default=func.now(),

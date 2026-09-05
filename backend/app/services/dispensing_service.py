@@ -8,6 +8,12 @@ from app.models.medicine import Medicine
 from app.schemas.consultation_medicine import (
     ConsultationMedicineCreate,
 )
+from app.services.actor_snapshot_service import (
+    snapshot_user_by_id,
+)
+from app.services.audit_log_service import (
+    create_audit_log,
+)
 
 
 VALID_STOCK_UNITS = {
@@ -101,6 +107,14 @@ def dispense_medicine(
         )
 
 
+    previous_total_units = medicine.total_units
+
+    actor_user, actor = snapshot_user_by_id(
+        db,
+        dispensed_by,
+    )
+
+
     # -----------------------------------------------------
     # DEDUCT PACKAGE STOCK
     # -----------------------------------------------------
@@ -167,6 +181,12 @@ def dispense_medicine(
 
             dispensed_by=
                 dispensed_by,
+
+            dispensed_by_name_snapshot=
+                actor["display_name"],
+
+            dispensed_by_role_snapshot=
+                actor["role_names"],
         )
     )
 
@@ -206,8 +226,20 @@ def dispense_medicine(
             notes=
                 data.dosage_instruction,
 
+            previous_total_units=
+                previous_total_units,
+
+            new_total_units=
+                medicine.total_units,
+
             recorded_by=
                 dispensed_by,
+
+            recorded_by_name_snapshot=
+                actor["display_name"],
+
+            recorded_by_role_snapshot=
+                actor["role_names"],
         )
     )
 
@@ -221,6 +253,29 @@ def dispense_medicine(
     # -----------------------------------------------------
 
     try:
+        db.flush()
+
+        if actor_user is not None:
+            create_audit_log(
+                db,
+                action="CONSULTATION_MEDICINE_DISPENSE",
+                module="INVENTORY",
+                user=actor_user,
+                record_id=inventory_transaction.id,
+                subject_label_snapshot=(
+                    f"{medicine.code} | "
+                    f"Consultation #{consultation.id}"
+                ),
+                description=(
+                    f"Dispensed {data.quantity} "
+                    f"{stock_unit} of {medicine.name} "
+                    f"for consultation #{consultation.id}. "
+                    f"Total stock changed from "
+                    f"{previous_total_units} to "
+                    f"{medicine.total_units} units."
+                ),
+            )
+
         db.commit()
 
     except Exception:

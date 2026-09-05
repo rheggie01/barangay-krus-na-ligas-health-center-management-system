@@ -71,6 +71,9 @@ class ConsultationMedicineResponse(BaseModel):
     remarks: str | None = None
 
     dispensed_by: int | None = None
+    dispensed_by_name_snapshot: str | None = None
+    dispensed_by_role_snapshot: str | None = None
+
     dispensed_at: datetime
 
     model_config = {

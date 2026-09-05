@@ -7,6 +7,12 @@ from app.schemas.consultation import (
     ConsultationCreate,
     ConsultationUpdate,
 )
+from app.services.actor_snapshot_service import (
+    snapshot_user_by_id,
+)
+from app.services.audit_log_service import (
+    create_audit_log,
+)
 
 
 def create_consultation(
@@ -20,6 +26,11 @@ def create_consultation(
     structured_symptoms = _get_active_symptoms_by_codes(
         db=db,
         symptom_codes=data.symptom_codes,
+    )
+
+    actor_user, actor = snapshot_user_by_id(
+        db,
+        recorded_by,
     )
 
     consultation = Consultation(
@@ -40,12 +51,32 @@ def create_consultation(
         treatment_plan=data.treatment_plan,
         notes=data.notes,
         recorded_by=recorded_by,
+        recorded_by_name_snapshot=actor["display_name"],
+        recorded_by_role_snapshot=actor["role_names"],
     )
 
     consultation.structured_symptoms = structured_symptoms
 
     try:
         db.add(consultation)
+        db.flush()
+
+        if actor_user is not None:
+            create_audit_log(
+                db,
+                action="CONSULTATION_CREATE",
+                module="CLINICAL",
+                user=actor_user,
+                record_id=consultation.id,
+                subject_label_snapshot=(
+                    f"Consultation #{consultation.id}"
+                ),
+                description=(
+                    "Created consultation "
+                    f"#{consultation.id} for "
+                    f"patient #{patient_id}."
+                ),
+            )
 
         if commit:
             db.commit()
@@ -56,9 +87,7 @@ def create_consultation(
                 consultation_id=consultation.id,
             )
 
-        db.flush()
         db.refresh(consultation)
-
         return consultation
 
     except Exception:
@@ -107,6 +136,7 @@ def update_consultation(
     db: Session,
     consultation: Consultation,
     data: ConsultationUpdate,
+    updated_by: int | None = None,
 ) -> Consultation:
     update_data = data.model_dump(
         exclude_unset=True
@@ -132,7 +162,30 @@ def update_consultation(
             value,
         )
 
+    actor_user, _actor = snapshot_user_by_id(
+        db,
+        updated_by,
+    )
+
     try:
+        db.flush()
+
+        if actor_user is not None:
+            create_audit_log(
+                db,
+                action="CONSULTATION_UPDATE",
+                module="CLINICAL",
+                user=actor_user,
+                record_id=consultation.id,
+                subject_label_snapshot=(
+                    f"Consultation #{consultation.id}"
+                ),
+                description=(
+                    "Updated consultation "
+                    f"#{consultation.id}."
+                ),
+            )
+
         db.commit()
         db.refresh(consultation)
 

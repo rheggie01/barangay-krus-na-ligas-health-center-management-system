@@ -169,6 +169,9 @@ class ConsultationResponse(BaseModel):
     notes: str | None
 
     recorded_by: int | None
+    recorded_by_name_snapshot: str | None = None
+    recorded_by_role_snapshot: str | None = None
+
     created_at: datetime
     updated_at: datetime
 

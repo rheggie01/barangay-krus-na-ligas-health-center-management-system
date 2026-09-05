@@ -121,9 +121,14 @@ class DiseaseCaseResponse(BaseModel):
     validation_status: str
 
     validated_by: int | None
+    validated_by_name_snapshot: str | None = None
+    validated_by_role_snapshot: str | None = None
+
     validated_at: datetime | None
 
     recorded_by: int | None
+    recorded_by_name_snapshot: str | None = None
+    recorded_by_role_snapshot: str | None = None
 
     created_at: datetime
     updated_at: datetime

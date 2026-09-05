@@ -19,4 +19,11 @@ class PatientHistoryResponse(BaseModel):
     history_type: str
     description: str
     recorded_by: int | None
+    recorded_by_name_snapshot: str | None = None
+    recorded_by_role_snapshot: str | None = None
+
     recorded_at: datetime
+
+    model_config = {
+        "from_attributes": True,
+    }
