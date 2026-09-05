@@ -1,0 +1,598 @@
+/* =========================================================
+   PATIENT RECORD PAGE
+========================================================= */
+
+.patient-record-page {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   TOP ACTIONS
+========================================================= */
+
+.patient-record-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  margin-bottom: 18px;
+}
+
+.patient-record-back,
+.patient-record-link {
+  color: #17324f;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.patient-record-back:hover,
+.patient-record-link:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
+.patient-profile-card {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 22px;
+
+  margin-bottom: 20px;
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7ed;
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 16px
+    rgba(23, 50, 79, 0.04);
+}
+
+.patient-profile-avatar {
+  width: 88px;
+  height: 88px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 18px;
+
+  background: #e6f4eb;
+  color: #2f6f50;
+
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.patient-profile-main {
+  width: 100%;
+  min-width: 0;
+}
+
+.patient-profile-name-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+.patient-profile-name-row h1 {
+  margin: 0 0 5px;
+
+  color: #17324f;
+
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.patient-profile-name-row p {
+  margin: 0;
+
+  color: #8491a0;
+
+  font-size: 0.8rem;
+}
+
+.patient-profile-meta,
+.patient-profile-contact {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px 18px;
+
+  margin-top: 13px;
+}
+
+.patient-profile-meta span,
+.patient-profile-contact span {
+  color: #617080;
+
+  font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.patient-status {
+  display: inline-flex;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.patient-status-active {
+  background: #eaf6ee;
+  color: #347455;
+}
+
+.patient-status-inactive {
+  background: #f1f3f5;
+  color: #7c8792;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.patient-summary-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.patient-summary-card {
+  min-height: 110px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 17px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7ed;
+  border-radius: 10px;
+}
+
+.patient-summary-card span {
+  color: #7b8896;
+
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.patient-summary-card strong {
+  margin-top: 14px;
+
+  color: #17324f;
+
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   MAIN CARDS
+========================================================= */
+
+.patient-record-card {
+  margin-bottom: 20px;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7ed;
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 16px
+    rgba(23, 50, 79, 0.035);
+}
+
+.patient-record-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin-bottom: 18px;
+}
+
+.patient-record-section-header h2 {
+  margin: 0 0 4px;
+
+  color: #17324f;
+
+  font-size: 1.1rem;
+}
+
+.patient-record-section-header p {
+  margin: 0;
+
+  color: #8995a5;
+
+  font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   INFO GRID
+========================================================= */
+
+.patient-info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.patient-info-item {
+  padding: 14px;
+
+  border: 1px solid #edf0f4;
+  border-radius: 8px;
+
+  background: #fafcfd;
+}
+
+.patient-info-item span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #8895a3;
+
+  font-size: 0.7rem;
+}
+
+.patient-info-item strong {
+  color: #334155;
+
+  font-size: 0.84rem;
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.patient-record-primary-button,
+.patient-record-secondary-button {
+  min-height: 40px;
+
+  padding: 8px 14px;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.patient-record-primary-button {
+  border: 1px solid #17324f;
+
+  background: #17324f;
+  color: #ffffff;
+}
+
+.patient-record-primary-button:hover:not(
+    :disabled
+  ) {
+  background: #214363;
+}
+
+.patient-record-secondary-button {
+  border: 1px solid #d6dee6;
+
+  background: #ffffff;
+  color: #526173;
+}
+
+.patient-record-secondary-button:hover {
+  background: #f7f9fb;
+}
+
+.patient-record-primary-button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.6;
+}
+
+
+/* =========================================================
+   EDIT / HISTORY / CONSULTATION FORMS
+========================================================= */
+
+.patient-edit-form,
+.patient-history-form,
+.patient-consultation-form {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+
+  margin-top: 16px;
+  padding: 18px;
+
+  border: 1px solid #e8edf1;
+  border-radius: 9px;
+
+  background: #fafcfd;
+}
+
+.patient-edit-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.patient-edit-field-full {
+  grid-column: 1 / -1;
+}
+
+.patient-edit-field label {
+  color: #526173;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.patient-edit-field input,
+.patient-edit-field select,
+.patient-edit-field textarea {
+  width: 100%;
+  min-height: 42px;
+
+  padding: 9px 11px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d8e0e8;
+  border-radius: 7px;
+
+  background: #ffffff;
+  color: #263548;
+}
+
+.patient-edit-field textarea {
+  min-height: 82px;
+
+  resize: vertical;
+}
+
+.patient-edit-field input:focus,
+.patient-edit-field select:focus,
+.patient-edit-field textarea:focus {
+  outline: none;
+
+  border-color: #17324f;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(23, 50, 79, 0.08);
+}
+
+.patient-form-section-title {
+  grid-column: 1 / -1;
+
+  margin-top: 6px;
+  padding-top: 12px;
+
+  border-top: 1px solid #e6ebef;
+
+  color: #17324f;
+
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.patient-edit-actions {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 3px;
+}
+
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+.patient-record-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.patient-record-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.patient-record-table th,
+.patient-record-table td {
+  padding: 11px 10px;
+
+  text-align: left;
+
+  border-bottom:
+    1px solid #edf0f4;
+}
+
+.patient-record-table th {
+  background: #f8fafc;
+  color: #718096;
+
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+.patient-record-table td {
+  color: #3c4b5c;
+
+  font-size: 0.8rem;
+}
+
+.patient-record-table tbody tr:hover {
+  background: #fafcfd;
+}
+
+.patient-record-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   HISTORY TYPE
+========================================================= */
+
+.patient-history-type {
+  display: inline-flex;
+
+  padding: 4px 8px;
+
+  border-radius: 999px;
+
+  background: #eef4fb;
+  color: #315a84;
+
+  font-size: 0.68rem;
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   MESSAGES / EMPTY STATE
+========================================================= */
+
+.patient-record-message {
+  margin-bottom: 16px;
+
+  padding: 11px 13px;
+
+  border-radius: 7px;
+
+  font-size: 0.8rem;
+}
+
+.patient-record-error {
+  background: #fff5f5;
+  color: #b33a3a;
+
+  border: 1px solid #f0d2d2;
+}
+
+.patient-record-success {
+  background: #edf8f1;
+  color: #31704e;
+
+  border: 1px solid #d4eadc;
+}
+
+.patient-record-empty,
+.patient-record-state {
+  padding: 24px;
+
+  color: #8a96a6;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .patient-summary-grid,
+  .patient-info-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 750px) {
+  .patient-profile-card {
+    flex-direction: column;
+  }
+
+  .patient-profile-name-row,
+  .patient-record-section-header,
+  .patient-record-top {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .patient-edit-form,
+  .patient-history-form,
+  .patient-consultation-form {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-edit-field-full,
+  .patient-form-section-title,
+  .patient-edit-actions {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .patient-summary-grid,
+  .patient-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-profile-avatar {
+    width: 72px;
+    height: 72px;
+  }
+
+  .patient-profile-name-row h1 {
+    font-size: 1.35rem;
+  }
+}

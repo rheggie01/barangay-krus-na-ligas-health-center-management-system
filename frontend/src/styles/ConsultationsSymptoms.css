@@ -1,0 +1,43 @@
+.consultations-symptom-help {
+  margin: 0 0 12px;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.consultations-symptom-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(190px, 1fr)
+  );
+  gap: 10px;
+}
+
+.consultations-symptom-option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.consultations-symptom-option input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.consultations-symptom-option span {
+  line-height: 1.3;
+}
+
+.consultations-symptom-count {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}

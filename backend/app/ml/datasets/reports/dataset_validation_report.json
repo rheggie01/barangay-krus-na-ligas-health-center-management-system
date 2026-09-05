@@ -1,0 +1,74 @@
+{
+  "validated_at": "2026-09-04T22:22:17",
+  "overall_passed": true,
+  "disclaimer": "Validation here checks engineering/schema/data-quality rules only. It is not clinical or epidemiological validation.",
+  "datasets": [
+    {
+      "dataset": "disease_classification_2021_2025.csv",
+      "passed": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "row_count": 6000,
+        "unique_record_ids": 6000,
+        "class_distribution": {
+          "ARI": 1444,
+          "DENGUE": 1562,
+          "DIARRHEA_GASTROENTERITIS": 1419,
+          "ILI": 1575
+        },
+        "class_imbalance_ratio": 1.11,
+        "duplicate_record_ids": 0,
+        "invalid_dates": 0,
+        "invalid_ages": 0,
+        "invalid_sex_values": 0,
+        "invalid_vitals": 0,
+        "invalid_symptom_rows": 0,
+        "invalid_disease_labels": 0,
+        "invalid_source_labels": 0
+      }
+    },
+    {
+      "dataset": "disease_timeseries_2021_2025.csv",
+      "passed": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "row_count": 1044,
+        "weekly_observations_by_disease": {
+          "DENGUE": 261,
+          "ARI": 261,
+          "ILI": 261,
+          "DIARRHEA_GASTROENTERITIS": 261
+        },
+        "duplicate_week_disease_keys": 0,
+        "invalid_week_start_values": 0,
+        "invalid_case_counts": 0,
+        "invalid_disease_labels": 0,
+        "invalid_source_labels": 0
+      }
+    },
+    {
+      "dataset": "medicine_consumption_2021_2025.csv",
+      "passed": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "row_count": 360,
+        "medicine_count": 6,
+        "monthly_observations_by_medicine": {
+          "SYN-MED-001": 60,
+          "SYN-MED-002": 60,
+          "SYN-MED-003": 60,
+          "SYN-MED-004": 60,
+          "SYN-MED-005": 60,
+          "SYN-MED-006": 60
+        },
+        "duplicate_month_medicine_keys": 0,
+        "invalid_month_start_values": 0,
+        "invalid_quantities": 0,
+        "invalid_source_labels": 0
+      }
+    }
+  ]
+}

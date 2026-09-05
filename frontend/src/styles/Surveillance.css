@@ -1,0 +1,1019 @@
+/* =========================================================
+   SURVEILLANCE PAGE
+========================================================= */
+
+.surveillance-page {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.surveillance-page-header {
+  margin-bottom: 22px;
+}
+
+.surveillance-page-header h1 {
+  margin: 0 0 5px;
+
+  color: #17324f;
+
+  font-size: 1.9rem;
+  font-weight: 800;
+
+  letter-spacing: -0.3px;
+}
+
+.surveillance-page-header p {
+  margin: 0;
+
+  color: #7f8c9b;
+
+  font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   GENERAL CARD
+========================================================= */
+
+.surveillance-card {
+  margin-bottom: 22px;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7ed;
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 16px
+    rgba(23, 50, 79, 0.04);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.surveillance-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin-bottom: 18px;
+}
+
+.surveillance-card-header h2 {
+  margin: 0 0 4px;
+
+  color: #17324f;
+
+  font-size: 1.1rem;
+  font-weight: 750;
+}
+
+.surveillance-card-header p {
+  margin: 0;
+
+  color: #8995a5;
+
+  font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   QUICK FILTERS
+========================================================= */
+
+.quick-filter-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.quick-filter-button {
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 10px 16px;
+
+  border: 1px solid #d8e0e8;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #17324f;
+
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.15s ease,
+    box-shadow 0.18s ease;
+}
+
+.quick-filter-button:hover:not(:disabled) {
+  background: #f8fafc;
+
+  border-color: #aebdca;
+
+  transform: translateY(-1px);
+}
+
+.quick-filter-button.active {
+  background: #17324f;
+  color: #ffffff;
+
+  border-color: #17324f;
+
+  box-shadow:
+    0 5px 15px
+    rgba(23, 50, 79, 0.18);
+}
+
+.quick-filter-button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.6;
+}
+
+.quick-filter-icon {
+  font-size: 1.05rem;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   FILTER FORM
+========================================================= */
+
+.surveillance-filter-form {
+  width: 100%;
+}
+
+.surveillance-date-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.surveillance-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.surveillance-field label {
+  color: #425466;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.surveillance-field input {
+  width: 100%;
+  min-height: 48px;
+
+  padding: 0 13px;
+
+  box-sizing: border-box;
+
+  outline: none;
+
+  border: 1px solid #d8e0e8;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #263548;
+
+  font-family: inherit;
+  font-size: 0.88rem;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.surveillance-field input:hover {
+  border-color: #b6c3cf;
+}
+
+.surveillance-field input:focus {
+  border-color: #17324f;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(23, 50, 79, 0.1);
+}
+
+.surveillance-filter-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.surveillance-summary-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.surveillance-summary-card {
+  min-height: 116px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 17px;
+
+  border: 1px solid #e0e6eb;
+  border-radius: 10px;
+
+  background: #fafcfd;
+}
+
+.surveillance-summary-card span {
+  color: #677788;
+
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.surveillance-summary-card strong {
+  margin-top: 14px;
+
+  color: #17324f;
+
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.surveillance-summary-card small {
+  margin-top: 7px;
+
+  color: #8995a5;
+
+  font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.surveillance-table-wrap {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid #edf0f4;
+  border-radius: 10px;
+}
+
+.surveillance-table {
+  width: 100%;
+  min-width: 620px;
+
+  border-collapse: collapse;
+}
+
+.surveillance-table th,
+.surveillance-table td {
+  padding: 12px 11px;
+
+  text-align: left;
+
+  border-bottom:
+    1px solid #edf0f4;
+}
+
+.surveillance-table th {
+  background: #f8fafc;
+  color: #718096;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.surveillance-table td {
+  color: #3c4b5c;
+
+  font-size: 0.84rem;
+}
+
+.surveillance-table tbody tr {
+  transition:
+    background 0.18s ease;
+}
+
+.surveillance-table tbody tr:hover {
+  background: #fafcfd;
+}
+
+.surveillance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   DISEASE CODE
+========================================================= */
+
+.surveillance-code {
+  color: #17324f;
+
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   CASE COUNT
+========================================================= */
+
+.surveillance-case-count {
+  color: #17324f;
+
+  font-size: 0.95rem;
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.surveillance-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px 8px;
+
+  border-radius: 999px;
+
+  font-size: 0.68rem;
+  font-weight: 750;
+
+  white-space: nowrap;
+}
+
+.surveillance-status-recorded {
+  background: #e9f2ff;
+  color: #244f7e;
+}
+
+.surveillance-status-none {
+  background: #f1f4f6;
+  color: #7d8995;
+}
+
+
+/* =========================================================
+   STREET HOTSPOTS
+========================================================= */
+
+.surveillance-hotspot-list {
+  display: grid;
+
+  gap: 12px;
+}
+
+.surveillance-hotspot-item {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 14px 16px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  background: #fafcfd;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.15s ease,
+    box-shadow 0.18s ease;
+}
+
+.surveillance-hotspot-item:hover {
+  background: #ffffff;
+
+  border-color: #cfd8e3;
+
+  box-shadow:
+    0 5px 16px
+    rgba(23, 50, 79, 0.07);
+
+  transform: translateY(-1px);
+}
+
+.surveillance-hotspot-rank {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #17324f;
+  color: #ffffff;
+
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.surveillance-hotspot-info {
+  min-width: 0;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.surveillance-hotspot-info strong {
+  overflow: hidden;
+
+  color: #263548;
+
+  font-size: 0.92rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.surveillance-hotspot-info span {
+  overflow: hidden;
+
+  color: #7f8c9b;
+
+  font-size: 0.78rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.surveillance-hotspot-count {
+  min-width: 42px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 10px;
+
+  border-radius: 999px;
+
+  background: #e9f2ff;
+  color: #244f7e;
+
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.surveillance-message {
+  margin-bottom: 18px;
+
+  padding: 11px 13px;
+
+  border-radius: 7px;
+
+  font-size: 0.84rem;
+}
+
+.surveillance-error {
+  border: 1px solid #f0d2d2;
+
+  background: #fff5f5;
+  color: #b33a3a;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.surveillance-empty {
+  padding: 24px 0;
+
+  color: #8a96a6;
+
+  text-align: center;
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .surveillance-summary-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1000px) {
+  .quick-filter-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+  .surveillance-page-header h1 {
+    font-size: 1.55rem;
+  }
+
+  .surveillance-card {
+    padding: 18px;
+  }
+
+  .surveillance-card-header {
+    flex-direction: column;
+  }
+
+  .quick-filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .surveillance-date-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .surveillance-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .surveillance-filter-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .surveillance-filter-actions .app-button {
+    width: 100%;
+  }
+
+  .surveillance-hotspot-item {
+    align-items: flex-start;
+  }
+
+  .surveillance-hotspot-info strong,
+  .surveillance-hotspot-info span {
+    white-space: normal;
+  }
+}
+/* =========================================================
+   DISEASE FILTER
+========================================================= */
+
+.surveillance-disease-filter {
+  display: grid;
+  grid-template-columns:
+    minmax(260px, 420px)
+    1fr;
+
+  gap: 20px;
+  align-items: end;
+}
+
+
+.surveillance-filter-status {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #f8fafc;
+}
+
+
+.surveillance-filter-status span {
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+
+.surveillance-filter-status strong {
+  color: #0f172a;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   MAP PRIVACY NOTE
+========================================================= */
+
+.surveillance-map-privacy-note {
+  margin-bottom: 14px;
+
+  padding: 10px 13px;
+
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+
+  background: #eff6ff;
+
+  color: #1e40af;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .surveillance-disease-filter {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+/* =========================================================
+   DISEASE FILTER
+========================================================= */
+
+.surveillance-disease-filter {
+  display: grid;
+  grid-template-columns:
+    minmax(280px, 440px)
+    minmax(220px, 1fr);
+
+  gap: 20px;
+
+  align-items: end;
+}
+
+
+.surveillance-filter-status {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  min-height: 46px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #f8fafc;
+}
+
+
+.surveillance-filter-status span {
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+
+.surveillance-filter-status strong {
+  color: #0f172a;
+
+  font-size: 14px;
+}
+
+
+.surveillance-filter-status small {
+  color: #b45309;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   MAP PRIVACY NOTICE
+========================================================= */
+
+.surveillance-map-privacy-note {
+  margin-bottom: 14px;
+
+  padding: 10px 13px;
+
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+
+  background: #eff6ff;
+
+  color: #1e40af;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SENSITIVE DISEASE NOTICE
+========================================================= */
+
+.surveillance-sensitive-notice {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  margin-bottom: 14px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #fcd34d;
+  border-radius: 10px;
+
+  background: #fffbeb;
+
+  color: #92400e;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+.surveillance-sensitive-notice strong {
+  color: #78350f;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .surveillance-disease-filter {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+/* =========================================================
+   GENERAL VS SENSITIVE SURVEILLANCE
+========================================================= */
+
+.surveillance-scope-card {
+  border-top: 3px solid #17324f;
+}
+
+.surveillance-scope-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.surveillance-scope-button {
+  display: grid;
+  gap: 5px;
+  min-height: 82px;
+  padding: 15px 16px;
+  text-align: left;
+  border: 1px solid #dbe3ea;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #425466;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+
+.surveillance-scope-button:hover:not(:disabled) {
+  border-color: #b9c7d3;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(23, 50, 79, 0.07);
+}
+
+.surveillance-scope-button strong {
+  color: #17324f;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.surveillance-scope-button span {
+  color: #7e8c9b;
+  font-size: 0.73rem;
+  line-height: 1.5;
+}
+
+.surveillance-scope-button.active {
+  border-color: #17324f;
+  background: #f5f8fb;
+  box-shadow: 0 0 0 2px rgba(23, 50, 79, 0.08);
+}
+
+.surveillance-scope-button-sensitive.active {
+  border-color: #7b4c62;
+  background: #fbf7f9;
+  box-shadow: 0 0 0 2px rgba(123, 76, 98, 0.08);
+}
+
+.surveillance-scope-button-sensitive.active strong {
+  color: #6f4057;
+}
+
+.surveillance-scope-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.surveillance-sensitive-mode-notice,
+.surveillance-sensitive-location-guard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 13px 14px;
+  border: 1px solid #ead9e1;
+  border-radius: 9px;
+  background: #fbf7f9;
+}
+
+.surveillance-sensitive-mode-notice {
+  display: grid;
+  gap: 4px;
+}
+
+.surveillance-sensitive-mode-notice strong,
+.surveillance-sensitive-location-guard strong {
+  color: #6f4057;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.surveillance-sensitive-mode-notice span,
+.surveillance-sensitive-location-guard p {
+  margin: 0;
+  color: #806c76;
+  font-size: 0.74rem;
+  line-height: 1.55;
+}
+
+.surveillance-sensitive-location-guard {
+  margin-top: 0;
+  padding: 20px;
+}
+
+.surveillance-sensitive-location-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #f2e8ed;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 760px) {
+  .surveillance-scope-switch {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   SURVEILLANCE REFRESH UX HOTFIX
+========================================================= */
+
+.surveillance-scope-button.active {
+  cursor: default;
+}
+
+.surveillance-scope-button.active:hover {
+  transform: none;
+}
+
+.surveillance-refresh-indicator {
+  position: sticky;
+  top: 10px;
+  z-index: 20;
+
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin: 0 0 14px;
+
+  padding: 8px 11px;
+
+  border: 1px solid #d8e3ec;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.96);
+  color: #536579;
+
+  box-shadow:
+    0 4px 14px rgba(23, 50, 79, 0.08);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.surveillance-refresh-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  animation:
+    surveillance-refresh-pulse 0.9s
+    ease-in-out infinite alternate;
+}
+
+@keyframes surveillance-refresh-pulse {
+  from {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}

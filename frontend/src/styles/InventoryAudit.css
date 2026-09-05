@@ -1,0 +1,27 @@
+/* =========================================================
+   INVENTORY TRANSACTION AUDIT IDENTITY
+========================================================= */
+
+.inventory-performed-by {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 130px;
+}
+
+.inventory-performed-by strong {
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.inventory-performed-by span {
+  font-size: 0.68rem;
+  line-height: 1.25;
+  opacity: 0.72;
+}
+
+.inventory-performed-by-missing {
+  font-size: 0.75rem;
+  opacity: 0.62;
+  white-space: nowrap;
+}

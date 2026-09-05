@@ -1,0 +1,177 @@
+/* =========================================================
+   ALL-DISEASE FORECAST CATALOG
+========================================================= */
+
+.forecast-catalog-overview {
+  display: grid;
+  gap: 14px;
+}
+
+.forecast-catalog-overview-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.forecast-catalog-overview-header h3,
+.forecast-catalog-pending h3 {
+  margin: 0 0 5px;
+  color: #17324f;
+  font-size: 0.98rem;
+}
+
+.forecast-catalog-overview-header p,
+.forecast-catalog-pending p {
+  max-width: 760px;
+  margin: 0;
+  color: #77879a;
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.forecast-catalog-count {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border: 1px solid #dce5ed;
+  border-radius: 999px;
+  background: #f7f9fb;
+  color: #536b82;
+  font-size: 0.66rem;
+  font-weight: 800;
+}
+
+.forecast-catalog-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #dfe7ee;
+  border-radius: 10px;
+}
+
+.forecast-catalog-table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+}
+
+.forecast-catalog-table th {
+  padding: 11px 13px;
+  background: #f4f7fa;
+  color: #5c6f83;
+  text-align: left;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.forecast-catalog-table td {
+  padding: 11px 13px;
+  border-top: 1px solid #e7edf2;
+  color: #344b63;
+  vertical-align: middle;
+  font-size: 0.73rem;
+}
+
+.forecast-catalog-table td strong {
+  display: block;
+  color: #203b57;
+  font-size: 0.75rem;
+}
+
+.forecast-catalog-table td small {
+  display: block;
+  margin-top: 2px;
+  color: #8996a4;
+  font-size: 0.62rem;
+}
+
+.forecast-catalog-status,
+.forecast-catalog-access {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 7px;
+  border: 1px solid #d9e3ec;
+  border-radius: 999px;
+  background: #f6f8fa;
+  color: #5d7082;
+  font-size: 0.6rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.forecast-catalog-status-ready {
+  border-color: #c7ded0;
+  background: #eef7f1;
+  color: #47705a;
+}
+
+.forecast-catalog-status-pending {
+  border-color: #e7d7cc;
+  background: #fbf5f1;
+  color: #8a6551;
+}
+
+.forecast-catalog-access-sensitive {
+  border-color: #e3cfd2;
+  background: #faf2f3;
+  color: #865861;
+}
+
+.forecast-catalog-note {
+  padding: 10px 12px;
+  border-left: 3px solid #b7c6d4;
+  background: #f8fafc;
+  color: #738397;
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.forecast-catalog-pending {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid #e4e9ee;
+  border-radius: 10px;
+  background: #fafbfc;
+}
+
+.forecast-catalog-pending-icon {
+  display: grid;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid #e0e6ec;
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: 1rem;
+}
+
+.forecast-catalog-pending-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.forecast-catalog-pending-meta span {
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: #eef2f6;
+  color: #627488;
+  font-size: 0.61rem;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .forecast-catalog-overview-header {
+    display: grid;
+  }
+
+  .forecast-catalog-count {
+    justify-self: start;
+  }
+
+  .forecast-catalog-pending {
+    display: grid;
+  }
+}

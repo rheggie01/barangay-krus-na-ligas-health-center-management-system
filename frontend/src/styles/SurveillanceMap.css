@@ -1,0 +1,161 @@
+/* =========================================================
+   DISEASE OUTBREAK MAP
+========================================================= */
+
+.surveillance-map-shell {
+  width: 100%;
+}
+
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.surveillance-map {
+  width: 100%;
+  height: 500px;
+
+  border: 1px solid #dbe4ee;
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  background: #eef2f7;
+}
+
+
+/* =========================================================
+   LEGEND
+========================================================= */
+
+.surveillance-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 14px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  background: #f8fafc;
+
+  font-size: 13px;
+}
+
+
+.surveillance-map-legend-item {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+.surveillance-map-legend-dot {
+  width: 11px;
+  height: 11px;
+
+  border-radius: 999px;
+
+  display: inline-block;
+}
+
+
+.legend-low {
+  background: #22c55e;
+}
+
+
+.legend-moderate {
+  background: #eab308;
+}
+
+
+.legend-high {
+  background: #f97316;
+}
+
+
+.legend-critical {
+  background: #ef4444;
+}
+
+
+/* =========================================================
+   UNMAPPED STREET WARNING
+========================================================= */
+
+.surveillance-map-notice {
+  margin-top: 12px;
+
+  padding: 11px 13px;
+
+  border: 1px solid #fed7aa;
+  border-radius: 10px;
+
+  background: #fff7ed;
+  color: #9a3412;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   POPUP
+========================================================= */
+
+.hotspot-popup {
+  min-width: 220px;
+}
+
+
+.hotspot-popup-title {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 15px;
+}
+
+
+.hotspot-popup p {
+  margin: 5px 0;
+}
+
+
+.hotspot-popup-divider {
+  height: 1px;
+
+  margin: 10px 0;
+
+  background: #e2e8f0;
+}
+
+
+.hotspot-popup-row {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin: 5px 0;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .surveillance-map {
+    height: 380px;
+  }
+
+}

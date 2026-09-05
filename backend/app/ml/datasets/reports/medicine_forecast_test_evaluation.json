@@ -1,0 +1,189 @@
+{
+  "created_at_utc": "2026-09-04T17:21:31.092829+00:00",
+  "development_status": "SYNTHETIC_TECHNICAL_TESTING_ONLY",
+  "evaluation_policy": "Selected specification is refit on train + validation and evaluated once on the untouched chronological test period. It is then refit on all available synthetic history for a six-month development medicine-demand forecast.",
+  "medicines": {
+    "SYN-MED-001": {
+      "medicine_name": "Paracetamol 500 mg Tablet",
+      "selected_model_family": "SARIMA",
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "test_rows": 9,
+      "test_period": {
+        "start": "2025-04-01",
+        "end": "2025-12-01"
+      },
+      "test_metrics": {
+        "mae": 34.055992,
+        "rmse": 43.590469,
+        "mape_nonzero_pct": 6.301701,
+        "mape_nonzero_rows": 9,
+        "total_rows": 9
+      },
+      "final_model_training_rows": 60,
+      "final_model_artifact": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\artifacts\\medicine_forecasting\\syn_med_001.joblib",
+      "future_forecast_horizon_months": 6
+    },
+    "SYN-MED-002": {
+      "medicine_name": "Oral Rehydration Salts Sachet",
+      "selected_model_family": "SARIMA",
+      "order": [
+        1,
+        0,
+        1
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "test_rows": 9,
+      "test_period": {
+        "start": "2025-04-01",
+        "end": "2025-12-01"
+      },
+      "test_metrics": {
+        "mae": 19.359773,
+        "rmse": 24.398482,
+        "mape_nonzero_pct": 6.84033,
+        "mape_nonzero_rows": 9,
+        "total_rows": 9
+      },
+      "final_model_training_rows": 60,
+      "final_model_artifact": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\artifacts\\medicine_forecasting\\syn_med_002.joblib",
+      "future_forecast_horizon_months": 6
+    },
+    "SYN-MED-003": {
+      "medicine_name": "Ascorbic Acid 500 mg Tablet",
+      "selected_model_family": "SARIMA",
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "test_rows": 9,
+      "test_period": {
+        "start": "2025-04-01",
+        "end": "2025-12-01"
+      },
+      "test_metrics": {
+        "mae": 53.150358,
+        "rmse": 64.672454,
+        "mape_nonzero_pct": 11.795615,
+        "mape_nonzero_rows": 9,
+        "total_rows": 9
+      },
+      "final_model_training_rows": 60,
+      "final_model_artifact": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\artifacts\\medicine_forecasting\\syn_med_003.joblib",
+      "future_forecast_horizon_months": 6
+    },
+    "SYN-MED-004": {
+      "medicine_name": "Cetirizine 10 mg Tablet",
+      "selected_model_family": "SARIMA",
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "test_rows": 9,
+      "test_period": {
+        "start": "2025-04-01",
+        "end": "2025-12-01"
+      },
+      "test_metrics": {
+        "mae": 22.946032,
+        "rmse": 28.304424,
+        "mape_nonzero_pct": 7.016198,
+        "mape_nonzero_rows": 9,
+        "total_rows": 9
+      },
+      "final_model_training_rows": 60,
+      "final_model_artifact": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\artifacts\\medicine_forecasting\\syn_med_004.joblib",
+      "future_forecast_horizon_months": 6
+    },
+    "SYN-MED-005": {
+      "medicine_name": "Amoxicillin 500 mg Capsule",
+      "selected_model_family": "SARIMA",
+      "order": [
+        1,
+        0,
+        1
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "test_rows": 9,
+      "test_period": {
+        "start": "2025-04-01",
+        "end": "2025-12-01"
+      },
+      "test_metrics": {
+        "mae": 25.013994,
+        "rmse": 33.438102,
+        "mape_nonzero_pct": 12.478546,
+        "mape_nonzero_rows": 9,
+        "total_rows": 9
+      },
+      "final_model_training_rows": 60,
+      "final_model_artifact": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\artifacts\\medicine_forecasting\\syn_med_005.joblib",
+      "future_forecast_horizon_months": 6
+    },
+    "SYN-MED-006": {
+      "medicine_name": "Zinc Sulfate 20 mg Tablet",
+      "selected_model_family": "SARIMA",
+      "order": [
+        1,
+        0,
+        1
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        12
+      ],
+      "test_rows": 9,
+      "test_period": {
+        "start": "2025-04-01",
+        "end": "2025-12-01"
+      },
+      "test_metrics": {
+        "mae": 13.919913,
+        "rmse": 18.393958,
+        "mape_nonzero_pct": 7.967947,
+        "mape_nonzero_rows": 9,
+        "total_rows": 9
+      },
+      "final_model_training_rows": 60,
+      "final_model_artifact": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\artifacts\\medicine_forecasting\\syn_med_006.joblib",
+      "future_forecast_horizon_months": 6
+    }
+  },
+  "future_forecast_file": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\datasets\\reports\\medicine_forecast_6_month.csv",
+  "warning": "Forecasts and metrics are synthetic technical-development outputs only and must not be presented as validated medicine demand or procurement requirements."
+}

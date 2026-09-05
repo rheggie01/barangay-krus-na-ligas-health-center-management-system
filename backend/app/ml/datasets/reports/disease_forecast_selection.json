@@ -1,0 +1,742 @@
+{
+  "created_at_utc": "2026-09-04T16:59:27.928670+00:00",
+  "development_status": "SYNTHETIC_TECHNICAL_TESTING_ONLY",
+  "dataset": "disease_timeseries_2021_2025.csv",
+  "methodology": {
+    "split": "Chronological split per disease: 183 train weeks, 39 validation weeks, 39 untouched test weeks.",
+    "seasonality_policy": "SARIMA candidates are evaluated only when the training series shows an absolute lag-52 autocorrelation of at least 0.20 and contains at least three seasonal cycles.",
+    "selection_metric": "Validation RMSE",
+    "metrics": [
+      "MAE",
+      "RMSE",
+      "MAPE excluding zero-actual weeks"
+    ]
+  },
+  "diseases": {
+    "DENGUE": {
+      "rows": 261,
+      "split": {
+        "train_rows": 183,
+        "validation_rows": 39,
+        "test_rows": 39,
+        "train_start": "2021-01-04",
+        "train_end": "2024-07-01",
+        "validation_start": "2024-07-08",
+        "validation_end": "2025-03-31",
+        "test_start": "2025-04-07",
+        "test_end": "2025-12-29"
+      },
+      "seasonality_screen": {
+        "method": "Lag-52 autocorrelation screening on training data",
+        "seasonal_period_weeks": 52,
+        "threshold_absolute_correlation": 0.2,
+        "lag_52_autocorrelation": 0.462343,
+        "sarima_candidate_evaluation_enabled": true
+      },
+      "candidate_results": [
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 3.329505,
+            "rmse": 3.787266,
+            "mape_nonzero_pct": 87.984945,
+            "mape_nonzero_rows": 37,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 876.575024,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 3.128003,
+            "rmse": 3.734113,
+            "mape_nonzero_pct": 74.061433,
+            "mape_nonzero_rows": 37,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 852.959221,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 3.261,
+            "rmse": 4.126501,
+            "mape_nonzero_pct": 64.527163,
+            "mape_nonzero_rows": 37,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 889.315905,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            0,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 3.32441,
+            "rmse": 3.851486,
+            "mape_nonzero_pct": 83.930059,
+            "mape_nonzero_rows": 37,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 853.580196,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 3.333142,
+            "rmse": 3.851986,
+            "mape_nonzero_pct": 84.747494,
+            "mape_nonzero_rows": 37,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 855.326984,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            52
+          ],
+          "validation_metrics": {
+            "mae": 2.882595,
+            "rmse": 3.416687,
+            "mape_nonzero_pct": 72.623946,
+            "mape_nonzero_rows": 37,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 613.493912,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            52
+          ],
+          "validation_metrics": {
+            "mae": 3.219489,
+            "rmse": 3.721419,
+            "mape_nonzero_pct": 82.837726,
+            "mape_nonzero_rows": 37,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 602.851561,
+          "converged": true
+        }
+      ],
+      "selected_specification": {
+        "model_family": "SARIMA",
+        "order": [
+          1,
+          0,
+          0
+        ],
+        "seasonal_order": [
+          1,
+          0,
+          0,
+          52
+        ],
+        "selection_basis": "Lowest validation RMSE; MAE then nonzero-MAPE used as tie-breakers.",
+        "validation_metrics": {
+          "mae": 2.882595,
+          "rmse": 3.416687,
+          "mape_nonzero_pct": 72.623946,
+          "mape_nonzero_rows": 37,
+          "total_rows": 39,
+          "mape_note": "MAPE excludes rows where the actual case count is zero."
+        }
+      }
+    },
+    "ARI": {
+      "rows": 261,
+      "split": {
+        "train_rows": 183,
+        "validation_rows": 39,
+        "test_rows": 39,
+        "train_start": "2021-01-04",
+        "train_end": "2024-07-01",
+        "validation_start": "2024-07-08",
+        "validation_end": "2025-03-31",
+        "test_start": "2025-04-07",
+        "test_end": "2025-12-29"
+      },
+      "seasonality_screen": {
+        "method": "Lag-52 autocorrelation screening on training data",
+        "seasonal_period_weeks": 52,
+        "threshold_absolute_correlation": 0.2,
+        "lag_52_autocorrelation": 0.112993,
+        "sarima_candidate_evaluation_enabled": false
+      },
+      "candidate_results": [
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.240618,
+            "rmse": 2.765762,
+            "mape_nonzero_pct": 65.003907,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 853.852066,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.233412,
+            "rmse": 2.755566,
+            "mape_nonzero_pct": 65.405482,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 850.866054,
+          "converged": false
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 3.759147,
+            "rmse": 4.498349,
+            "mape_nonzero_pct": 63.123415,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 939.022401,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            0,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.235986,
+            "rmse": 2.762676,
+            "mape_nonzero_pct": 64.958269,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 849.734537,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.240323,
+            "rmse": 2.765276,
+            "mape_nonzero_pct": 65.022858,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 851.042621,
+          "converged": true
+        }
+      ],
+      "selected_specification": {
+        "model_family": "ARIMA",
+        "order": [
+          1,
+          0,
+          1
+        ],
+        "seasonal_order": null,
+        "selection_basis": "Lowest validation RMSE; MAE then nonzero-MAPE used as tie-breakers.",
+        "validation_metrics": {
+          "mae": 2.233412,
+          "rmse": 2.755566,
+          "mape_nonzero_pct": 65.405482,
+          "mape_nonzero_rows": 39,
+          "total_rows": 39,
+          "mape_note": "MAPE excludes rows where the actual case count is zero."
+        }
+      }
+    },
+    "ILI": {
+      "rows": 261,
+      "split": {
+        "train_rows": 183,
+        "validation_rows": 39,
+        "test_rows": 39,
+        "train_start": "2021-01-04",
+        "train_end": "2024-07-01",
+        "validation_start": "2024-07-08",
+        "validation_end": "2025-03-31",
+        "test_start": "2025-04-07",
+        "test_end": "2025-12-29"
+      },
+      "seasonality_screen": {
+        "method": "Lag-52 autocorrelation screening on training data",
+        "seasonal_period_weeks": 52,
+        "threshold_absolute_correlation": 0.2,
+        "lag_52_autocorrelation": 0.297154,
+        "sarima_candidate_evaluation_enabled": true
+      },
+      "candidate_results": [
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.632566,
+            "rmse": 3.163964,
+            "mape_nonzero_pct": 73.587016,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 876.645884,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.570148,
+            "rmse": 3.103324,
+            "mape_nonzero_pct": 70.726362,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 854.937357,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.734903,
+            "rmse": 3.281711,
+            "mape_nonzero_pct": 79.352557,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 888.678502,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            0,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.763433,
+            "rmse": 3.366092,
+            "mape_nonzero_pct": 64.566365,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 855.839467,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.75371,
+            "rmse": 3.345737,
+            "mape_nonzero_pct": 65.208863,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 857.351881,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            52
+          ],
+          "validation_metrics": {
+            "mae": 2.526034,
+            "rmse": 3.075387,
+            "mape_nonzero_pct": 71.114201,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 634.461703,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            52
+          ],
+          "validation_metrics": {
+            "mae": 2.549868,
+            "rmse": 3.102087,
+            "mape_nonzero_pct": 69.403291,
+            "mape_nonzero_rows": 39,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 622.927017,
+          "converged": true
+        }
+      ],
+      "selected_specification": {
+        "model_family": "SARIMA",
+        "order": [
+          1,
+          0,
+          0
+        ],
+        "seasonal_order": [
+          1,
+          0,
+          0,
+          52
+        ],
+        "selection_basis": "Lowest validation RMSE; MAE then nonzero-MAPE used as tie-breakers.",
+        "validation_metrics": {
+          "mae": 2.526034,
+          "rmse": 3.075387,
+          "mape_nonzero_pct": 71.114201,
+          "mape_nonzero_rows": 39,
+          "total_rows": 39,
+          "mape_note": "MAPE excludes rows where the actual case count is zero."
+        }
+      }
+    },
+    "DIARRHEA_GASTROENTERITIS": {
+      "rows": 261,
+      "split": {
+        "train_rows": 183,
+        "validation_rows": 39,
+        "test_rows": 39,
+        "train_start": "2021-01-04",
+        "train_end": "2024-07-01",
+        "validation_start": "2024-07-08",
+        "validation_end": "2025-03-31",
+        "test_start": "2025-04-07",
+        "test_end": "2025-12-29"
+      },
+      "seasonality_screen": {
+        "method": "Lag-52 autocorrelation screening on training data",
+        "seasonal_period_weeks": 52,
+        "threshold_absolute_correlation": 0.2,
+        "lag_52_autocorrelation": 0.42071,
+        "sarima_candidate_evaluation_enabled": true
+      },
+      "candidate_results": [
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.054415,
+            "rmse": 2.480609,
+            "mape_nonzero_pct": 70.255875,
+            "mape_nonzero_rows": 38,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 901.43808,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.071341,
+            "rmse": 2.516769,
+            "mape_nonzero_pct": 72.032424,
+            "mape_nonzero_rows": 38,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 878.049568,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 3.415917,
+            "rmse": 4.004367,
+            "mape_nonzero_pct": 120.661292,
+            "mape_nonzero_rows": 38,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 916.94098,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            0,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.928695,
+            "rmse": 3.477571,
+            "mape_nonzero_pct": 105.098813,
+            "mape_nonzero_rows": 38,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 877.328672,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 2.868655,
+            "rmse": 3.413856,
+            "mape_nonzero_pct": 103.113871,
+            "mape_nonzero_rows": 38,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 878.055235,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            52
+          ],
+          "validation_metrics": {
+            "mae": 2.046111,
+            "rmse": 2.522056,
+            "mape_nonzero_pct": 66.256143,
+            "mape_nonzero_rows": 38,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 636.507799,
+          "converged": true
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            52
+          ],
+          "validation_metrics": {
+            "mae": 2.027354,
+            "rmse": 2.498542,
+            "mape_nonzero_pct": 68.612342,
+            "mape_nonzero_rows": 38,
+            "total_rows": 39,
+            "mape_note": "MAPE excludes rows where the actual case count is zero."
+          },
+          "aic": 631.624784,
+          "converged": true
+        }
+      ],
+      "selected_specification": {
+        "model_family": "ARIMA",
+        "order": [
+          1,
+          0,
+          0
+        ],
+        "seasonal_order": null,
+        "selection_basis": "Lowest validation RMSE; MAE then nonzero-MAPE used as tie-breakers.",
+        "validation_metrics": {
+          "mae": 2.054415,
+          "rmse": 2.480609,
+          "mape_nonzero_pct": 70.255875,
+          "mape_nonzero_rows": 38,
+          "total_rows": 39,
+          "mape_note": "MAPE excludes rows where the actual case count is zero."
+        }
+      }
+    }
+  },
+  "warning": "Results are based on synthetic development data and are not evidence of real-world disease forecasting accuracy."
+}

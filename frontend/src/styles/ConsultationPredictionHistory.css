@@ -1,0 +1,144 @@
+.consultation-ml-history-notice {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid #e1e7ed;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: #607083;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.consultation-ml-history-error {
+  margin-bottom: 16px;
+}
+
+.consultation-ml-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.consultation-ml-history-item {
+  padding: 17px;
+  border: 1px solid #e1e7ed;
+  border-radius: 11px;
+  background: #fbfcfd;
+}
+
+.consultation-ml-history-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.consultation-ml-history-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #8290a0;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.consultation-ml-history-top h3 {
+  margin: 0;
+  color: #17324f;
+  font-size: 1rem;
+}
+
+.consultation-ml-history-top p {
+  margin: 6px 0 0;
+  color: #607083;
+  font-size: 0.8rem;
+}
+
+.consultation-ml-history-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  color: #667587;
+  text-align: right;
+}
+
+.consultation-ml-history-meta span {
+  color: #17324f;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.consultation-ml-history-meta small {
+  font-size: 0.72rem;
+}
+
+.consultation-ml-history-probabilities {
+  margin-bottom: 14px;
+  padding: 4px 12px;
+  border: 1px solid #edf0f4;
+  border-radius: 9px;
+  background: #ffffff;
+}
+
+.consultation-ml-history-probability-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid #edf0f4;
+  color: #526173;
+  font-size: 0.8rem;
+}
+
+.consultation-ml-history-probability-row:last-child {
+  border-bottom: none;
+}
+
+.consultation-ml-history-probability-row strong {
+  color: #17324f;
+}
+
+.consultation-ml-history-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.consultation-ml-history-inputs span {
+  padding: 6px 9px;
+  border: 1px solid #e4e9ee;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #647386;
+  font-size: 0.72rem;
+}
+
+.consultation-ml-history-disclaimer {
+  padding-top: 11px;
+  border-top: 1px solid #e8edf1;
+  color: #7a8795;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+  .consultation-ml-history-top {
+    flex-direction: column;
+  }
+
+  .consultation-ml-history-meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .consultation-section-header {
+    flex-direction: column;
+  }
+
+  .consultation-section-header .app-button {
+    width: 100%;
+  }
+}

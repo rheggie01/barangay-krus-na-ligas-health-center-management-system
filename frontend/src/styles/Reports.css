@@ -1,0 +1,728 @@
+/* =========================================================
+   PAGE
+========================================================= */
+
+.reports-page {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.reports-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 18px;
+}
+
+
+.reports-header h1 {
+  margin: 0;
+
+  color: var(--app-text-dark);
+
+  font-size: 1.8rem;
+}
+
+
+.reports-header p,
+.reports-card-header p,
+.reports-review-item p {
+  margin: 6px 0 0;
+
+  color: var(--app-text-muted);
+
+  line-height: 1.5;
+}
+
+
+.reports-header-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: var(--app-text-muted);
+
+  font-size: 0.86rem;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.reports-button {
+  min-height: 38px;
+
+  padding: 0 16px;
+
+  border: 0;
+  border-radius: var(--app-radius);
+
+  background: var(--app-navy);
+
+  color: #ffffff;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.reports-button:hover:not(:disabled) {
+  background: var(--app-navy-hover);
+}
+
+
+.reports-button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   SUMMARY GRID
+========================================================= */
+
+.reports-grid,
+.reports-risk-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 14px;
+}
+
+
+.reports-risk-grid {
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   METRIC / CARD
+========================================================= */
+
+.reports-metric,
+.reports-card,
+.reports-review-item {
+  border:
+    1px solid
+    var(--app-border);
+
+  border-radius:
+    var(--app-radius);
+
+  background:
+    var(--app-surface);
+}
+
+
+.reports-metric {
+  min-height: 96px;
+
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.reports-metric span,
+.reports-review-item span {
+  color:
+    var(--app-text-muted);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+
+.reports-metric strong {
+  color:
+    var(--app-text-dark);
+
+  font-size: 2rem;
+
+  line-height: 1;
+}
+
+
+.reports-metric-warning strong {
+  color: #9a5b00;
+}
+
+
+.reports-metric-danger strong {
+  color:
+    var(--app-danger);
+}
+
+
+/* =========================================================
+   STATISTICAL OVERVIEW
+========================================================= */
+
+.reports-statistics-section {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+
+.reports-section-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+
+.reports-section-title h2 {
+  margin: 0;
+
+  color:
+    var(--app-text-dark);
+
+  font-size: 1.2rem;
+}
+
+
+.reports-section-title p {
+  margin: 5px 0 0;
+
+  color:
+    var(--app-text-muted);
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CHART GRID
+========================================================= */
+
+.reports-chart-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 18px;
+}
+
+
+.reports-chart-wide {
+  grid-column:
+    1 / -1;
+}
+
+
+/* =========================================================
+   CHART CARD
+========================================================= */
+
+.reports-chart-card {
+  min-width: 0;
+
+  overflow: hidden;
+}
+
+
+.reports-chart-body {
+  width: 100%;
+  height: 310px;
+
+  min-width: 0;
+}
+
+
+.reports-chart-body-short {
+  height: 270px;
+}
+
+
+.reports-chart-footer {
+  margin-top: 10px;
+
+  padding-top: 10px;
+
+  border-top:
+    1px solid
+    var(--app-border-soft);
+
+  color:
+    var(--app-text-muted);
+
+  font-size: 0.8rem;
+}
+
+
+.reports-chart-footer strong {
+  color:
+    var(--app-text-dark);
+}
+
+
+/* =========================================================
+   RECHARTS
+========================================================= */
+
+.reports-chart-card
+.recharts-default-tooltip {
+  border:
+    1px solid
+    var(--app-border) !important;
+
+  border-radius:
+    8px !important;
+
+  background:
+    var(--app-surface) !important;
+
+  box-shadow:
+    0 8px 24px
+    rgba(
+      15,
+      40,
+      70,
+      0.08
+    ) !important;
+}
+
+
+.reports-chart-card
+.recharts-tooltip-label {
+  color:
+    var(--app-text-dark);
+
+  font-weight: 700;
+}
+
+
+.reports-chart-card
+.recharts-cartesian-axis-tick-value {
+  fill:
+    var(--app-text-muted);
+
+  font-size: 0.76rem;
+}
+
+
+.reports-chart-card
+.recharts-legend-item-text {
+  color:
+    var(--app-text-muted) !important;
+
+  font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   AGE LEGEND
+========================================================= */
+
+.reports-age-legend {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px 16px;
+
+  margin-top: 8px;
+
+  padding-top: 12px;
+
+  border-top:
+    1px solid
+    var(--app-border-soft);
+
+  color:
+    var(--app-text-muted);
+
+  font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   MAIN REPORT COLUMNS
+========================================================= */
+
+.reports-two-column {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(0, 1fr);
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   REPORT CARD
+========================================================= */
+
+.reports-card {
+  padding: 18px;
+}
+
+
+.reports-card-header {
+  margin-bottom: 16px;
+}
+
+
+.reports-card-header h2 {
+  margin: 0;
+
+  color:
+    var(--app-text-dark);
+
+  font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.reports-table-wrap {
+  overflow-x: auto;
+}
+
+
+.reports-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-size: 0.88rem;
+}
+
+
+.reports-table th,
+.reports-table td {
+  padding: 12px 10px;
+
+  border-bottom:
+    1px solid
+    var(--app-border-soft);
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+
+.reports-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+.reports-table tbody tr:hover {
+  background:
+    rgba(
+      20,
+      55,
+      90,
+      0.02
+    );
+}
+
+
+.reports-table th {
+  color:
+    var(--app-text-muted);
+
+  font-size: 0.76rem;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CODE / STATUS
+========================================================= */
+
+.reports-code,
+.reports-status,
+.reports-trend {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 24px;
+
+  padding: 0 9px;
+
+  border-radius: 999px;
+
+  font-size: 0.74rem;
+
+  font-weight: 800;
+}
+
+
+.reports-code {
+  background:
+    var(--app-green-soft);
+
+  color:
+    var(--app-green);
+}
+
+
+.reports-status-warning {
+  background: #fff8e6;
+
+  color: #9a5b00;
+}
+
+
+.reports-status-danger {
+  background:
+    var(--app-danger-bg);
+
+  color:
+    var(--app-danger);
+}
+
+
+/* =========================================================
+   TREND BADGES
+========================================================= */
+
+.reports-trend-neutral {
+  background: #eef2f6;
+
+  color: #66778b;
+}
+
+
+.reports-trend-up {
+  background: #fff3df;
+
+  color: #9a5b00;
+}
+
+
+.reports-trend-down {
+  background:
+    var(--app-green-soft);
+
+  color:
+    var(--app-green);
+}
+
+
+/* =========================================================
+   PRIORITY REVIEW
+========================================================= */
+
+.reports-review-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 14px;
+}
+
+
+.reports-review-item {
+  padding: 16px;
+}
+
+
+.reports-review-item strong {
+  display: block;
+
+  margin-top: 8px;
+
+  color:
+    var(--app-text-dark);
+
+  font-size: 1.7rem;
+}
+
+
+/* =========================================================
+   EMPTY / PAGE STATE
+========================================================= */
+
+.reports-empty,
+.reports-state {
+  padding: 28px;
+
+  border:
+    1px solid
+    var(--app-border);
+
+  border-radius:
+    var(--app-radius);
+
+  background:
+    var(--app-surface);
+
+  color:
+    var(--app-text-muted);
+
+  text-align: center;
+}
+
+
+.reports-chart-card
+.reports-empty {
+  min-height: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  background: transparent;
+}
+
+
+.reports-state {
+  min-height: 240px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+}
+
+
+/* =========================================================
+   RESPONSIVE - LAPTOP
+========================================================= */
+
+@media (
+  max-width: 1100px
+) {
+  .reports-grid,
+  .reports-review-list {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .reports-two-column {
+    grid-template-columns:
+      1fr;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (
+  max-width: 900px
+) {
+  .reports-chart-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .reports-chart-wide {
+    grid-column:
+      auto;
+  }
+
+
+  .reports-chart-body {
+    height: 290px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (
+  max-width: 720px
+) {
+  .reports-header,
+  .reports-header-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .reports-grid,
+  .reports-risk-grid,
+  .reports-review-list {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .reports-chart-body {
+    height: 270px;
+  }
+
+
+  .reports-card {
+    padding: 15px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width: 520px
+) {
+  .reports-chart-body {
+    height: 250px;
+  }
+
+
+  .reports-age-legend {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+}

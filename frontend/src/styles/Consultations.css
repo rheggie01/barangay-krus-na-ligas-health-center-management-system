@@ -1,0 +1,420 @@
+/* =========================================================
+   CONSULTATIONS PAGE
+========================================================= */
+
+.consultations-page {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.consultations-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.consultations-page-header h1 {
+  margin: 0 0 5px;
+
+  color: #17324f;
+
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.consultations-page-header p {
+  margin: 0;
+
+  color: #7f8c9b;
+
+  font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.consultations-message {
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.consultations-card {
+  margin-bottom: 22px;
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7ed;
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 16px rgba(23, 50, 79, 0.04);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.consultations-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.consultations-card-header h2 {
+  margin: 0 0 4px;
+
+  color: #17324f;
+
+  font-size: 1.1rem;
+  font-weight: 750;
+}
+
+.consultations-card-header p {
+  margin: 0;
+
+  color: #8995a5;
+
+  font-size: 0.82rem;
+}
+
+.consultations-count {
+  color: #8995a5;
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   CONSULTATION FORM
+========================================================= */
+
+.consultations-form {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+
+/* =========================================================
+   FORM SECTION TITLE
+========================================================= */
+
+.consultations-form-section-title {
+  grid-column: 1 / -1;
+
+  margin-top: 6px;
+  padding-top: 15px;
+
+  border-top: 1px solid #e8edf1;
+
+  color: #17324f;
+
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.consultations-form-section-title:first-child {
+  margin-top: 0;
+  padding-top: 0;
+
+  border-top: none;
+}
+
+
+/* =========================================================
+   FORM FIELD
+========================================================= */
+
+.consultations-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.consultations-field-full {
+  grid-column: 1 / -1;
+}
+
+.consultations-field label {
+  color: #526173;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.consultations-field input,
+.consultations-field select,
+.consultations-field textarea {
+  width: 100%;
+  min-height: 44px;
+
+  padding: 9px 11px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d8e0e8;
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #263548;
+
+  font-family: inherit;
+  font-size: 0.86rem;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.consultations-field textarea {
+  min-height: 90px;
+
+  resize: vertical;
+}
+
+.consultations-field input::placeholder,
+.consultations-field textarea::placeholder {
+  color: #a1acb8;
+}
+
+
+/* =========================================================
+   INPUT HOVER
+========================================================= */
+
+.consultations-field input:hover,
+.consultations-field select:hover,
+.consultations-field textarea:hover {
+  border-color: #b7c4cf;
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+========================================================= */
+
+.consultations-field input:focus,
+.consultations-field select:focus,
+.consultations-field textarea:focus {
+  border-color: #17324f;
+
+  box-shadow:
+    0 0 0 3px rgba(23, 50, 79, 0.08);
+}
+
+
+/* =========================================================
+   DISABLED INPUT
+========================================================= */
+
+.consultations-field input:disabled,
+.consultations-field select:disabled,
+.consultations-field textarea:disabled {
+  background: #f4f6f8;
+  color: #8a96a3;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.consultations-form-actions {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 6px;
+  padding-top: 16px;
+
+  border-top: 1px solid #edf0f4;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.consultations-table-wrap {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.consultations-table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.consultations-table th,
+.consultations-table td {
+  padding: 11px 10px;
+
+  text-align: left;
+  vertical-align: middle;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.consultations-table th {
+  background: #f8fafc;
+  color: #718096;
+
+  font-size: 0.72rem;
+  font-weight: 750;
+
+  white-space: nowrap;
+}
+
+.consultations-table td {
+  color: #3c4b5c;
+
+  font-size: 0.8rem;
+}
+
+.consultations-table tbody tr:hover {
+  background: #fafcfd;
+}
+
+.consultations-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   PATIENT CODE
+========================================================= */
+
+.consultations-code {
+  color: #17324f;
+
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.consultations-status {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 4px 8px;
+
+  border-radius: 999px;
+
+  font-size: 0.66rem;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.consultations-status-active {
+  background: #eaf6ee;
+  color: #347455;
+}
+
+.consultations-status-inactive {
+  background: #f1f4f6;
+  color: #7c8792;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.consultations-empty {
+  padding: 24px 0;
+
+  color: #8a96a6;
+
+  text-align: center;
+
+  font-size: 0.84rem;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .consultations-form {
+    grid-template-columns: 1fr;
+  }
+
+  .consultations-field-full,
+  .consultations-form-section-title,
+  .consultations-form-actions {
+    grid-column: auto;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+  .consultations-page-header {
+    flex-direction: column;
+  }
+
+  .consultations-page-header .app-button {
+    width: 100%;
+  }
+
+  .consultations-card {
+    padding: 18px;
+  }
+
+  .consultations-form-actions {
+    flex-direction: column;
+  }
+
+  .consultations-form-actions .app-button {
+    width: 100%;
+  }
+}

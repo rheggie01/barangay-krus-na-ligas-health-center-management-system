@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-09-04T22:22:05",
+  "random_seed": 20260904,
+  "date_range": {
+    "start": "2021-01-01",
+    "end": "2025-12-31"
+  },
+  "disclaimer": "Synthetic development data only. Not official DOH/LGU records, not medically validated probabilities, and not evidence of real-world predictive performance.",
+  "disease_classes": [
+    "DENGUE",
+    "ARI",
+    "ILI",
+    "DIARRHEA_GASTROENTERITIS"
+  ],
+  "symptom_codes": [
+    "FEVER",
+    "COUGH",
+    "RUNNY_NOSE",
+    "SORE_THROAT",
+    "HEADACHE",
+    "BODY_PAIN",
+    "VOMITING",
+    "DIARRHEA",
+    "ABDOMINAL_PAIN",
+    "RASH",
+    "NAUSEA",
+    "FATIGUE",
+    "DIFFICULTY_BREATHING",
+    "LOSS_OF_APPETITE",
+    "CHILLS"
+  ],
+  "files": {
+    "disease_classification_2021_2025.csv": {
+      "rows": 6000,
+      "class_distribution": {
+        "ARI": 1444,
+        "DENGUE": 1562,
+        "DIARRHEA_GASTROENTERITIS": 1419,
+        "ILI": 1575
+      }
+    },
+    "disease_timeseries_2021_2025.csv": {
+      "rows": 1044
+    },
+    "medicine_consumption_2021_2025.csv": {
+      "rows": 360,
+      "medicine_count": 6
+    }
+  }
+}

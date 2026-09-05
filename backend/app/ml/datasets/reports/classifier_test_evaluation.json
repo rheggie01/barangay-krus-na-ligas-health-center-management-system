@@ -1,0 +1,58 @@
+{
+  "development_status": "SYNTHETIC_TECHNICAL_TESTING_ONLY",
+  "selected_model": "LOGISTIC_REGRESSION",
+  "test_rows": 900,
+  "metrics": {
+    "accuracy": 0.866667,
+    "precision_macro": 0.867062,
+    "recall_macro": 0.868327,
+    "f1_macro": 0.867612,
+    "f1_weighted": 0.866111
+  },
+  "classification_report": {
+    "DENGUE": {
+      "precision": 0.8828451882845189,
+      "recall": 0.8978723404255319,
+      "f1-score": 0.890295358649789,
+      "support": 235.0
+    },
+    "ARI": {
+      "precision": 0.8372093023255814,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.8352668213457076,
+      "support": 216.0
+    },
+    "ILI": {
+      "precision": 0.8034934497816594,
+      "recall": 0.7796610169491526,
+      "f1-score": 0.7913978494623656,
+      "support": 236.0
+    },
+    "DIARRHEA_GASTROENTERITIS": {
+      "precision": 0.9447004608294931,
+      "recall": 0.9624413145539906,
+      "f1-score": 0.9534883720930233,
+      "support": 213.0
+    },
+    "accuracy": 0.8666666666666667,
+    "macro avg": {
+      "precision": 0.8670621003053132,
+      "recall": 0.8683270013155021,
+      "f1-score": 0.8676121003877214,
+      "support": 900.0
+    },
+    "weighted avg": {
+      "precision": 0.8657238676159346,
+      "recall": 0.8666666666666667,
+      "f1-score": 0.8661110649136727,
+      "support": 900.0
+    }
+  },
+  "disease_class_order": [
+    "DENGUE",
+    "ARI",
+    "ILI",
+    "DIARRHEA_GASTROENTERITIS"
+  ],
+  "interpretation_warning": "Held-out performance on synthetic scenario data only. It is not evidence of clinical diagnostic accuracy."
+}

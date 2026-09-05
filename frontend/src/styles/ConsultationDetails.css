@@ -1,0 +1,616 @@
+/* =========================================================
+   CONSULTATION DETAILS PAGE
+========================================================= */
+
+.consultation-details-page {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.consultation-details-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 22px;
+}
+
+.consultation-details-header h1 {
+  margin: 8px 0 5px;
+
+  color: #17324f;
+
+  font-size: 1.9rem;
+  font-weight: 800;
+
+  letter-spacing: -0.3px;
+}
+
+.consultation-details-header p {
+  margin: 0;
+
+  color: #7f8c9b;
+
+  font-size: 0.9rem;
+}
+
+.consultation-back-link {
+  display: inline-flex;
+
+  color: #526173;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.consultation-back-link:hover {
+  color: #17324f;
+}
+
+
+/* =========================================================
+   PAGE STATE
+========================================================= */
+
+.consultation-details-state {
+  padding: 40px;
+
+  color: #7f8c9b;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.consultation-details-message {
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.consultation-details-card {
+  margin-bottom: 22px;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7ed;
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 16px
+    rgba(23, 50, 79, 0.04);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.consultation-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin-bottom: 18px;
+}
+
+.consultation-section-header h2 {
+  margin: 0 0 4px;
+
+  color: #17324f;
+
+  font-size: 1.1rem;
+  font-weight: 750;
+}
+
+.consultation-section-header p {
+  margin: 0;
+
+  color: #8995a5;
+
+  font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   CONSULTATION INFO
+========================================================= */
+
+.consultation-info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.consultation-info-item {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 14px;
+
+  background: #f8fafc;
+
+  border: 1px solid #edf0f4;
+  border-radius: 9px;
+}
+
+.consultation-info-item span {
+  color: #7c8998;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.consultation-info-item strong {
+  color: #2d3d4f;
+
+  font-size: 0.86rem;
+  font-weight: 700;
+
+  line-height: 1.5;
+}
+
+.consultation-info-full {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   VITAL SIGNS
+========================================================= */
+
+.consultation-vitals-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.consultation-vital-card {
+  min-height: 90px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 15px;
+
+  background: #f4faf6;
+
+  border: 1px solid #dcebe0;
+  border-radius: 10px;
+}
+
+.consultation-vital-card span {
+  color: #65806f;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.consultation-vital-card strong {
+  margin-top: 12px;
+
+  color: #234c39;
+
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   CLINICAL INFORMATION
+========================================================= */
+
+.consultation-clinical-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+
+/* =========================================================
+   EDIT FORM
+========================================================= */
+
+.consultation-edit-form,
+.dispensing-form {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+
+/* =========================================================
+   FORM SECTION TITLE
+========================================================= */
+
+.consultation-form-section-title {
+  grid-column: 1 / -1;
+
+  margin-top: 6px;
+  padding-top: 15px;
+
+  border-top:
+    1px solid #e8edf1;
+
+  color: #17324f;
+
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.consultation-form-section-title:first-child {
+  margin-top: 0;
+  padding-top: 0;
+
+  border-top: none;
+}
+
+
+/* =========================================================
+   FORM FIELD
+========================================================= */
+
+.consultation-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.consultation-field-full {
+  grid-column: 1 / -1;
+}
+
+.consultation-field label {
+  color: #526173;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.consultation-field input,
+.consultation-field select,
+.consultation-field textarea {
+  width: 100%;
+  min-height: 44px;
+
+  padding: 9px 11px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d8e0e8;
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #263548;
+
+  font-family: inherit;
+  font-size: 0.86rem;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.consultation-field textarea {
+  min-height: 90px;
+
+  resize: vertical;
+}
+
+.consultation-field input::placeholder,
+.consultation-field textarea::placeholder {
+  color: #a1acb8;
+}
+
+.consultation-field input:hover,
+.consultation-field select:hover,
+.consultation-field textarea:hover {
+  border-color: #b7c4cf;
+}
+
+.consultation-field input:focus,
+.consultation-field select:focus,
+.consultation-field textarea:focus {
+  border-color: #17324f;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(23, 50, 79, 0.08);
+}
+
+
+/* =========================================================
+   DISABLED FIELD
+========================================================= */
+
+.consultation-field input:disabled {
+  background: #f4f6f8;
+  color: #8a96a3;
+
+  cursor: not-allowed;
+}
+
+.consultation-field-note {
+  color: #8a96a3;
+
+  font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.consultation-form-actions {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 6px;
+  padding-top: 16px;
+
+  border-top:
+    1px solid #edf0f4;
+}
+
+
+/* =========================================================
+   DISPENSING STOCK SUMMARY
+========================================================= */
+
+.dispensing-stock-summary {
+  grid-column: 1 / -1;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.dispensing-stock-summary > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 14px;
+
+  background: #f4faf6;
+
+  border: 1px solid #dcebe0;
+  border-radius: 9px;
+}
+
+.dispensing-stock-summary span {
+  color: #65806f;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.dispensing-stock-summary strong {
+  color: #234c39;
+
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   AVAILABLE STOCK
+========================================================= */
+
+.dispensing-available {
+  padding: 10px 12px;
+
+  background: #f7fafc;
+
+  border: 1px solid #e2e8ee;
+  border-radius: 8px;
+
+  color: #657487;
+
+  font-size: 0.8rem;
+}
+
+.dispensing-available strong {
+  color: #17324f;
+}
+
+
+/* =========================================================
+   DISPENSING HISTORY
+========================================================= */
+
+.dispensing-history {
+  margin-top: 24px;
+}
+
+.dispensing-history h3 {
+  margin: 0 0 12px;
+
+  color: #17324f;
+
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.consultation-table-wrap {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.consultation-table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.consultation-table th,
+.consultation-table td {
+  padding: 11px 10px;
+
+  text-align: left;
+  vertical-align: middle;
+
+  border-bottom:
+    1px solid #edf0f4;
+}
+
+.consultation-table th {
+  background: #f8fafc;
+  color: #718096;
+
+  font-size: 0.72rem;
+  font-weight: 750;
+
+  white-space: nowrap;
+}
+
+.consultation-table td {
+  color: #3c4b5c;
+
+  font-size: 0.8rem;
+}
+
+.consultation-table tbody tr:hover {
+  background: #fafcfd;
+}
+
+.consultation-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.consultation-empty {
+  padding: 24px 0;
+
+  color: #8a96a6;
+
+  text-align: center;
+
+  font-size: 0.84rem;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .consultation-vitals-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .consultation-details-header,
+  .consultation-section-header {
+    flex-direction: column;
+  }
+
+  .consultation-details-header
+    .app-button,
+  .consultation-section-header
+    .app-button {
+    width: 100%;
+  }
+
+  .consultation-details-card {
+    padding: 18px;
+  }
+
+  .consultation-info-grid,
+  .consultation-clinical-list,
+  .consultation-vitals-grid,
+  .consultation-edit-form,
+  .dispensing-form,
+  .dispensing-stock-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .consultation-info-full,
+  .consultation-field-full,
+  .consultation-form-section-title,
+  .consultation-form-actions,
+  .dispensing-stock-summary,
+  .dispensing-available {
+    grid-column: auto;
+  }
+
+  .consultation-form-actions {
+    flex-direction: column;
+  }
+
+  .consultation-form-actions
+    .app-button {
+    width: 100%;
+  }
+}

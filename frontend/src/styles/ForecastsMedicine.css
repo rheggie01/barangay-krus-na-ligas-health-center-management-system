@@ -1,0 +1,255 @@
+.medicine-forecast-workspace {
+  margin-bottom: 20px;
+}
+
+.forecast-section-message {
+  margin-bottom: 16px;
+}
+
+.medicine-dss-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 4px 0 14px;
+  padding-top: 4px;
+}
+
+.medicine-dss-heading h3 {
+  margin: 0 0 5px;
+  color: #17324f;
+  font-size: 0.95rem;
+}
+
+.medicine-dss-heading p {
+  margin: 0;
+  max-width: 720px;
+  color: #7f8c9b;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.medicine-dss-status {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border: 1px solid #dbe3ea;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #5f6f80;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.medicine-dss-status-ready {
+  border-color: #cfe2d7;
+}
+
+.medicine-dss-status-withheld {
+  border-color: #ead9d9;
+}
+
+.medicine-dss-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.medicine-dss-card {
+  padding: 15px;
+  border: 1px solid #e1e7ed;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.medicine-dss-card span,
+.medicine-dss-card small {
+  display: block;
+  color: #8190a0;
+  font-size: 0.72rem;
+}
+
+.medicine-dss-card strong {
+  display: block;
+  margin: 5px 0;
+  color: #17324f;
+  font-size: 1.15rem;
+}
+
+.medicine-dss-card-primary {
+  background: #f8fafc;
+  border-width: 2px;
+}
+
+.medicine-dss-formula {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid #e1e7ed;
+  border-radius: 9px;
+  background: #f8fafc;
+}
+
+.medicine-dss-formula > span {
+  display: block;
+  margin-bottom: 5px;
+  color: #8190a0;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.medicine-dss-formula code {
+  display: block;
+  color: #17324f;
+  font-size: 0.78rem;
+  white-space: normal;
+}
+
+.medicine-dss-formula p {
+  margin-top: 7px;
+  color: #7b8998;
+  font-size: 0.72rem;
+}
+
+.medicine-inventory-match-warning {
+  margin-bottom: 14px;
+  padding: 13px 14px;
+  border: 1px solid #eadede;
+  border-radius: 9px;
+  background: #fcf9f9;
+  color: #765f5f;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.medicine-inventory-snapshot {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.medicine-inventory-snapshot > div {
+  padding: 10px 12px;
+  border: 1px solid #edf0f4;
+  border-radius: 8px;
+}
+
+.medicine-inventory-snapshot span {
+  display: block;
+  margin-bottom: 4px;
+  color: #8794a2;
+  font-size: 0.68rem;
+}
+
+.medicine-inventory-snapshot strong {
+  color: #31475e;
+  font-size: 0.78rem;
+}
+
+.medicine-forecast-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #69798a;
+  font-size: 0.78rem;
+}
+
+.medicine-forecast-summary-row strong {
+  color: #17324f;
+}
+
+@media (max-width: 900px) {
+  .medicine-dss-heading {
+    flex-direction: column;
+  }
+
+  .medicine-dss-grid,
+  .medicine-inventory-snapshot {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+}
+
+@media (max-width: 560px) {
+  .medicine-dss-grid,
+  .medicine-inventory-snapshot {
+    grid-template-columns: 1fr;
+  }
+
+  .medicine-forecast-summary-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+
+.medicine-temporal-banner {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 16px;
+  padding: 13px 14px;
+  border: 1px solid #dfe5eb;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: #647486;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.medicine-temporal-banner strong {
+  color: #17324f;
+}
+
+.medicine-temporal-banner span {
+  color: #7b8998;
+}
+
+.medicine-temporal-banner p {
+  margin: 3px 0 0;
+}
+
+.medicine-temporal-current {
+  border-color: #cfe2d7;
+}
+
+.medicine-temporal-stale {
+  border-color: #eadede;
+  background: #fcf9f9;
+}
+
+.medicine-safety-guards {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.medicine-safety-guards
+.medicine-inventory-match-warning {
+  margin-bottom: 0;
+}
+
+.medicine-inventory-snapshot-unmatched {
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+}

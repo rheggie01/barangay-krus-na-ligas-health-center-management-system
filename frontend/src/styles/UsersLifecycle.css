@@ -1,0 +1,107 @@
+/* =========================================================
+   USER LIFECYCLE / AUDIT UX
+========================================================= */
+
+.users-summary-grid-lifecycle {
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+}
+
+.users-status-inactive {
+  background: #eef1f4;
+  color: #657587;
+}
+
+.users-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+
+  display: grid;
+  place-items: center;
+
+  padding: 20px;
+
+  background:
+    rgba(15, 31, 48, 0.48);
+}
+
+.users-confirm-modal {
+  width: min(100%, 520px);
+
+  box-sizing: border-box;
+
+  padding: 24px;
+
+  border: 1px solid #dde5ec;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 22px 60px
+    rgba(15, 31, 48, 0.18);
+}
+
+.users-confirm-modal h2 {
+  margin: 0 0 9px;
+
+  color: #17324f;
+
+  font-size: 1.08rem;
+}
+
+.users-confirm-modal p {
+  margin: 0;
+
+  color: #697b8e;
+
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.users-confirm-warning {
+  margin-top: 16px;
+
+  padding: 12px 13px;
+
+  border: 1px solid #ecd8d2;
+  border-radius: 9px;
+
+  background: #fcf6f4;
+  color: #805c55;
+
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.users-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 9px;
+
+  margin-top: 20px;
+}
+
+@media (max-width: 1200px) {
+  .users-summary-grid-lifecycle {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .users-summary-grid-lifecycle {
+    grid-template-columns: 1fr;
+  }
+
+  .users-confirm-actions {
+    display: grid;
+  }
+
+  .users-confirm-actions
+    .app-button {
+    width: 100%;
+  }
+}

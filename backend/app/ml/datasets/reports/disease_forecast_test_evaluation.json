@@ -1,0 +1,119 @@
+{
+  "created_at_utc": "2026-09-04T17:00:07.603040+00:00",
+  "development_status": "SYNTHETIC_TECHNICAL_TESTING_ONLY",
+  "evaluation_policy": "Selected specification is refit on train + validation and evaluated once on the untouched chronological test period. After evaluation, the same specification is refit on all available synthetic history for the 12-week development forecast artifact.",
+  "diseases": {
+    "DENGUE": {
+      "selected_model_family": "SARIMA",
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        52
+      ],
+      "test_rows": 39,
+      "test_period": {
+        "start": "2025-04-07",
+        "end": "2025-12-29"
+      },
+      "test_metrics": {
+        "mae": 2.760504,
+        "rmse": 3.382915,
+        "mape_nonzero_pct": 58.181565,
+        "mape_nonzero_rows": 39,
+        "total_rows": 39,
+        "mape_note": "MAPE excludes rows where the actual case count is zero."
+      },
+      "final_model_training_rows": 261,
+      "final_model_artifact": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\artifacts\\disease_forecasting\\dengue.joblib",
+      "future_forecast_horizon_weeks": 12
+    },
+    "ARI": {
+      "selected_model_family": "ARIMA",
+      "order": [
+        1,
+        0,
+        1
+      ],
+      "seasonal_order": null,
+      "test_rows": 39,
+      "test_period": {
+        "start": "2025-04-07",
+        "end": "2025-12-29"
+      },
+      "test_metrics": {
+        "mae": 1.455862,
+        "rmse": 1.792405,
+        "mape_nonzero_pct": 49.650061,
+        "mape_nonzero_rows": 39,
+        "total_rows": 39,
+        "mape_note": "MAPE excludes rows where the actual case count is zero."
+      },
+      "final_model_training_rows": 261,
+      "final_model_artifact": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\artifacts\\disease_forecasting\\ari.joblib",
+      "future_forecast_horizon_weeks": 12
+    },
+    "ILI": {
+      "selected_model_family": "SARIMA",
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        0,
+        52
+      ],
+      "test_rows": 39,
+      "test_period": {
+        "start": "2025-04-07",
+        "end": "2025-12-29"
+      },
+      "test_metrics": {
+        "mae": 2.231867,
+        "rmse": 2.770028,
+        "mape_nonzero_pct": 55.312139,
+        "mape_nonzero_rows": 38,
+        "total_rows": 39,
+        "mape_note": "MAPE excludes rows where the actual case count is zero."
+      },
+      "final_model_training_rows": 261,
+      "final_model_artifact": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\artifacts\\disease_forecasting\\ili.joblib",
+      "future_forecast_horizon_weeks": 12
+    },
+    "DIARRHEA_GASTROENTERITIS": {
+      "selected_model_family": "ARIMA",
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": null,
+      "test_rows": 39,
+      "test_period": {
+        "start": "2025-04-07",
+        "end": "2025-12-29"
+      },
+      "test_metrics": {
+        "mae": 2.093613,
+        "rmse": 2.606312,
+        "mape_nonzero_pct": 65.682037,
+        "mape_nonzero_rows": 39,
+        "total_rows": 39,
+        "mape_note": "MAPE excludes rows where the actual case count is zero."
+      },
+      "final_model_training_rows": 261,
+      "final_model_artifact": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\artifacts\\disease_forecasting\\diarrhea_gastroenteritis.joblib",
+      "future_forecast_horizon_weeks": 12
+    }
+  },
+  "future_forecast_file": "C:\\Users\\PC\\Desktop\\barangay-health-system\\backend\\app\\ml\\datasets\\reports\\disease_forecast_12_week.csv",
+  "warning": "Forecasts and metrics are synthetic technical-development outputs only and must not be presented as validated public health forecasts."
+}

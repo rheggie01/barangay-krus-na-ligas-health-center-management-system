@@ -1,0 +1,1116 @@
+{
+  "created_at_utc": "2026-09-04T17:21:18.442756+00:00",
+  "development_status": "SYNTHETIC_TECHNICAL_TESTING_ONLY",
+  "dataset": "medicine_consumption_2021_2025.csv",
+  "methodology": {
+    "split": "Chronological split per medicine: 42 train months, 9 validation months, 9 untouched test months.",
+    "seasonality_policy": "SARIMA candidates are evaluated only when the training series shows an absolute lag-12 autocorrelation of at least 0.20 and contains at least three seasonal cycles.",
+    "selection_metric": "Validation RMSE",
+    "metrics": [
+      "MAE",
+      "RMSE",
+      "MAPE excluding zero-actual months"
+    ]
+  },
+  "medicines": {
+    "SYN-MED-001": {
+      "medicine_code": "SYN-MED-001",
+      "medicine_name": "Paracetamol 500 mg Tablet",
+      "rows": 60,
+      "split": {
+        "train_rows": 42,
+        "validation_rows": 9,
+        "test_rows": 9,
+        "train_start": "2021-01-01",
+        "train_end": "2024-06-01",
+        "validation_start": "2024-07-01",
+        "validation_end": "2025-03-01",
+        "test_start": "2025-04-01",
+        "test_end": "2025-12-01"
+      },
+      "seasonality_screen": {
+        "method": "Lag-12 autocorrelation screening on training data",
+        "seasonal_period_months": 12,
+        "threshold_absolute_correlation": 0.2,
+        "lag_12_autocorrelation": 0.813448,
+        "sarima_candidate_evaluation_enabled": true
+      },
+      "candidate_results": [
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 85.873772,
+            "rmse": 98.912328,
+            "mape_nonzero_pct": 15.593952,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 462.640359
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 87.871729,
+            "rmse": 96.704569,
+            "mape_nonzero_pct": 16.328992,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 453.118468
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 96.001205,
+            "rmse": 108.440384,
+            "mape_nonzero_pct": 19.262,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 455.488577
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            0,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 96.416215,
+            "rmse": 105.327161,
+            "mape_nonzero_pct": 19.015539,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 443.386492
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 96.251191,
+            "rmse": 104.994146,
+            "mape_nonzero_pct": 18.967611,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 445.065805
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 58.591292,
+            "rmse": 69.354156,
+            "mape_nonzero_pct": 10.247582,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 314.333774
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 62.361237,
+            "rmse": 71.787676,
+            "mape_nonzero_pct": 10.99629,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 316.553855
+        }
+      ],
+      "selected_specification": {
+        "model_family": "SARIMA",
+        "order": [
+          1,
+          0,
+          0
+        ],
+        "seasonal_order": [
+          1,
+          0,
+          0,
+          12
+        ],
+        "selection_basis": "Lowest validation RMSE; MAE then nonzero-MAPE used as tie-breakers.",
+        "validation_metrics": {
+          "mae": 58.591292,
+          "rmse": 69.354156,
+          "mape_nonzero_pct": 10.247582,
+          "mape_nonzero_rows": 9,
+          "total_rows": 9
+        }
+      }
+    },
+    "SYN-MED-002": {
+      "medicine_code": "SYN-MED-002",
+      "medicine_name": "Oral Rehydration Salts Sachet",
+      "rows": 60,
+      "split": {
+        "train_rows": 42,
+        "validation_rows": 9,
+        "test_rows": 9,
+        "train_start": "2021-01-01",
+        "train_end": "2024-06-01",
+        "validation_start": "2024-07-01",
+        "validation_end": "2025-03-01",
+        "test_start": "2025-04-01",
+        "test_end": "2025-12-01"
+      },
+      "seasonality_screen": {
+        "method": "Lag-12 autocorrelation screening on training data",
+        "seasonal_period_months": 12,
+        "threshold_absolute_correlation": 0.2,
+        "lag_12_autocorrelation": 0.788965,
+        "sarima_candidate_evaluation_enabled": true
+      },
+      "candidate_results": [
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 26.389609,
+            "rmse": 31.317,
+            "mape_nonzero_pct": 9.406805,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 407.045069
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 26.343118,
+            "rmse": 30.917189,
+            "mape_nonzero_pct": 9.604104,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 398.258268
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 32.342756,
+            "rmse": 39.544701,
+            "mape_nonzero_pct": 11.057904,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 403.499679
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            0,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 29.759994,
+            "rmse": 35.650558,
+            "mape_nonzero_pct": 10.299349,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 393.484444
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 26.279211,
+            "rmse": 31.213635,
+            "mape_nonzero_pct": 9.373559,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 391.279087
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 19.430946,
+            "rmse": 23.882469,
+            "mape_nonzero_pct": 6.918508,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 276.654541
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 18.107027,
+            "rmse": 22.566269,
+            "mape_nonzero_pct": 6.406388,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 278.80665
+        }
+      ],
+      "selected_specification": {
+        "model_family": "SARIMA",
+        "order": [
+          1,
+          0,
+          1
+        ],
+        "seasonal_order": [
+          1,
+          0,
+          0,
+          12
+        ],
+        "selection_basis": "Lowest validation RMSE; MAE then nonzero-MAPE used as tie-breakers.",
+        "validation_metrics": {
+          "mae": 18.107027,
+          "rmse": 22.566269,
+          "mape_nonzero_pct": 6.406388,
+          "mape_nonzero_rows": 9,
+          "total_rows": 9
+        }
+      }
+    },
+    "SYN-MED-003": {
+      "medicine_code": "SYN-MED-003",
+      "medicine_name": "Ascorbic Acid 500 mg Tablet",
+      "rows": 60,
+      "split": {
+        "train_rows": 42,
+        "validation_rows": 9,
+        "test_rows": 9,
+        "train_start": "2021-01-01",
+        "train_end": "2024-06-01",
+        "validation_start": "2024-07-01",
+        "validation_end": "2025-03-01",
+        "test_start": "2025-04-01",
+        "test_end": "2025-12-01"
+      },
+      "seasonality_screen": {
+        "method": "Lag-12 autocorrelation screening on training data",
+        "seasonal_period_months": 12,
+        "threshold_absolute_correlation": 0.2,
+        "lag_12_autocorrelation": 0.731594,
+        "sarima_candidate_evaluation_enabled": true
+      },
+      "candidate_results": [
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 87.912373,
+            "rmse": 106.16343,
+            "mape_nonzero_pct": 18.225662,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 444.809931
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 85.003339,
+            "rmse": 103.133145,
+            "mape_nonzero_pct": 17.730433,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 436.834733
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 139.569636,
+            "rmse": 157.722382,
+            "mape_nonzero_pct": 27.772803,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 440.310376
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            0,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 138.729255,
+            "rmse": 156.84814,
+            "mape_nonzero_pct": 27.629405,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 430.764985
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 138.448101,
+            "rmse": 156.614344,
+            "mape_nonzero_pct": 27.562597,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 432.223969
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 67.708053,
+            "rmse": 74.955983,
+            "mape_nonzero_pct": 15.088233,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 308.143961
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 67.933444,
+            "rmse": 75.254821,
+            "mape_nonzero_pct": 15.118204,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 310.078559
+        }
+      ],
+      "selected_specification": {
+        "model_family": "SARIMA",
+        "order": [
+          1,
+          0,
+          0
+        ],
+        "seasonal_order": [
+          1,
+          0,
+          0,
+          12
+        ],
+        "selection_basis": "Lowest validation RMSE; MAE then nonzero-MAPE used as tie-breakers.",
+        "validation_metrics": {
+          "mae": 67.708053,
+          "rmse": 74.955983,
+          "mape_nonzero_pct": 15.088233,
+          "mape_nonzero_rows": 9,
+          "total_rows": 9
+        }
+      }
+    },
+    "SYN-MED-004": {
+      "medicine_code": "SYN-MED-004",
+      "medicine_name": "Cetirizine 10 mg Tablet",
+      "rows": 60,
+      "split": {
+        "train_rows": 42,
+        "validation_rows": 9,
+        "test_rows": 9,
+        "train_start": "2021-01-01",
+        "train_end": "2024-06-01",
+        "validation_start": "2024-07-01",
+        "validation_end": "2025-03-01",
+        "test_start": "2025-04-01",
+        "test_end": "2025-12-01"
+      },
+      "seasonality_screen": {
+        "method": "Lag-12 autocorrelation screening on training data",
+        "seasonal_period_months": 12,
+        "threshold_absolute_correlation": 0.2,
+        "lag_12_autocorrelation": 0.684187,
+        "sarima_candidate_evaluation_enabled": true
+      },
+      "candidate_results": [
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 34.114666,
+            "rmse": 38.904192,
+            "mape_nonzero_pct": 11.231653,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 408.814891
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 30.041816,
+            "rmse": 35.516861,
+            "mape_nonzero_pct": 10.239238,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 398.63009
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 56.314969,
+            "rmse": 65.227141,
+            "mape_nonzero_pct": 17.181902,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 402.039209
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            0,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 56.265755,
+            "rmse": 65.171812,
+            "mape_nonzero_pct": 17.171668,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 393.145869
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 57.004674,
+            "rmse": 66.026489,
+            "mape_nonzero_pct": 17.374802,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 395.096719
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 24.710936,
+            "rmse": 30.777133,
+            "mape_nonzero_pct": 8.436324,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 278.978824
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 24.741265,
+            "rmse": 30.831142,
+            "mape_nonzero_pct": 8.449887,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 280.853549
+        }
+      ],
+      "selected_specification": {
+        "model_family": "SARIMA",
+        "order": [
+          1,
+          0,
+          0
+        ],
+        "seasonal_order": [
+          1,
+          0,
+          0,
+          12
+        ],
+        "selection_basis": "Lowest validation RMSE; MAE then nonzero-MAPE used as tie-breakers.",
+        "validation_metrics": {
+          "mae": 24.710936,
+          "rmse": 30.777133,
+          "mape_nonzero_pct": 8.436324,
+          "mape_nonzero_rows": 9,
+          "total_rows": 9
+        }
+      }
+    },
+    "SYN-MED-005": {
+      "medicine_code": "SYN-MED-005",
+      "medicine_name": "Amoxicillin 500 mg Capsule",
+      "rows": 60,
+      "split": {
+        "train_rows": 42,
+        "validation_rows": 9,
+        "test_rows": 9,
+        "train_start": "2021-01-01",
+        "train_end": "2024-06-01",
+        "validation_start": "2024-07-01",
+        "validation_end": "2025-03-01",
+        "test_start": "2025-04-01",
+        "test_end": "2025-12-01"
+      },
+      "seasonality_screen": {
+        "method": "Lag-12 autocorrelation screening on training data",
+        "seasonal_period_months": 12,
+        "threshold_absolute_correlation": 0.2,
+        "lag_12_autocorrelation": 0.800822,
+        "sarima_candidate_evaluation_enabled": true
+      },
+      "candidate_results": [
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 31.831144,
+            "rmse": 39.135222,
+            "mape_nonzero_pct": 11.80785,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 384.423891
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 36.681983,
+            "rmse": 44.063587,
+            "mape_nonzero_pct": 13.577427,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 370.948481
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 37.714502,
+            "rmse": 45.231965,
+            "mape_nonzero_pct": 13.972138,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 375.162639
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            0,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 40.185723,
+            "rmse": 48.015158,
+            "mape_nonzero_pct": 14.866003,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 365.725735
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 38.44851,
+            "rmse": 46.081873,
+            "mape_nonzero_pct": 14.227872,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 367.228839
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 23.116593,
+            "rmse": 26.238437,
+            "mape_nonzero_pct": 8.832582,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 254.958283
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 22.559603,
+            "rmse": 25.663169,
+            "mape_nonzero_pct": 8.639872,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 256.661842
+        }
+      ],
+      "selected_specification": {
+        "model_family": "SARIMA",
+        "order": [
+          1,
+          0,
+          1
+        ],
+        "seasonal_order": [
+          1,
+          0,
+          0,
+          12
+        ],
+        "selection_basis": "Lowest validation RMSE; MAE then nonzero-MAPE used as tie-breakers.",
+        "validation_metrics": {
+          "mae": 22.559603,
+          "rmse": 25.663169,
+          "mape_nonzero_pct": 8.639872,
+          "mape_nonzero_rows": 9,
+          "total_rows": 9
+        }
+      }
+    },
+    "SYN-MED-006": {
+      "medicine_code": "SYN-MED-006",
+      "medicine_name": "Zinc Sulfate 20 mg Tablet",
+      "rows": 60,
+      "split": {
+        "train_rows": 42,
+        "validation_rows": 9,
+        "test_rows": 9,
+        "train_start": "2021-01-01",
+        "train_end": "2024-06-01",
+        "validation_start": "2024-07-01",
+        "validation_end": "2025-03-01",
+        "test_start": "2025-04-01",
+        "test_end": "2025-12-01"
+      },
+      "seasonality_screen": {
+        "method": "Lag-12 autocorrelation screening on training data",
+        "seasonal_period_months": 12,
+        "threshold_absolute_correlation": 0.2,
+        "lag_12_autocorrelation": 0.858692,
+        "sarima_candidate_evaluation_enabled": true
+      },
+      "candidate_results": [
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 25.820758,
+            "rmse": 29.836006,
+            "mape_nonzero_pct": 11.950645,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 379.167774
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 28.524557,
+            "rmse": 33.228489,
+            "mape_nonzero_pct": 13.113553,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 371.80631
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            0
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 64.848888,
+            "rmse": 70.088968,
+            "mape_nonzero_pct": 30.279782,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 374.007146
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            0,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 69.364746,
+            "rmse": 74.885536,
+            "mape_nonzero_pct": 32.407201,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 363.691313
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "ARIMA",
+          "order": [
+            1,
+            1,
+            1
+          ],
+          "seasonal_order": null,
+          "validation_metrics": {
+            "mae": 26.861166,
+            "rmse": 31.506235,
+            "mape_nonzero_pct": 12.351904,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 361.945835
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            0
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 16.48088,
+            "rmse": 22.294133,
+            "mape_nonzero_pct": 7.791262,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 247.44471
+        },
+        {
+          "status": "SUCCESS",
+          "model_family": "SARIMA",
+          "order": [
+            1,
+            0,
+            1
+          ],
+          "seasonal_order": [
+            1,
+            0,
+            0,
+            12
+          ],
+          "validation_metrics": {
+            "mae": 12.60146,
+            "rmse": 17.310068,
+            "mape_nonzero_pct": 6.303019,
+            "mape_nonzero_rows": 9,
+            "total_rows": 9
+          },
+          "aic": 247.269236
+        }
+      ],
+      "selected_specification": {
+        "model_family": "SARIMA",
+        "order": [
+          1,
+          0,
+          1
+        ],
+        "seasonal_order": [
+          1,
+          0,
+          0,
+          12
+        ],
+        "selection_basis": "Lowest validation RMSE; MAE then nonzero-MAPE used as tie-breakers.",
+        "validation_metrics": {
+          "mae": 12.60146,
+          "rmse": 17.310068,
+          "mape_nonzero_pct": 6.303019,
+          "mape_nonzero_rows": 9,
+          "total_rows": 9
+        }
+      }
+    }
+  },
+  "warning": "Results are based on synthetic development data and are not validated real-world medicine demand forecasts."
+}

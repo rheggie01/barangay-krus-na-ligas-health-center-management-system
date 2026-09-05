@@ -1,0 +1,197 @@
+
+/* =========================================================
+   DISEASE -> MEDICINE DEVELOPMENT MAPPING
+========================================================= */
+
+.forecast-mapping-panel {
+  margin-bottom: 26px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e3e9ef;
+}
+
+.forecast-mapping-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.forecast-mapping-heading h3 {
+  margin: 0 0 6px;
+  color: #17324f;
+  font-size: 1rem;
+}
+
+.forecast-mapping-heading p {
+  max-width: 760px;
+  margin: 0;
+  color: #76869a;
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.forecast-mapping-development-badge {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border: 1px solid #d8e2eb;
+  border-radius: 999px;
+  background: #f7f9fb;
+  color: #5c6f82;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.forecast-mapping-controls {
+  display: grid;
+  grid-template-columns:
+    minmax(190px, 0.8fr)
+    minmax(260px, 1.8fr)
+    auto;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 14px;
+  border: 1px solid #dfe7ee;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.forecast-mapping-controls label {
+  display: grid;
+  gap: 6px;
+}
+
+.forecast-mapping-controls label > span,
+.forecast-mapping-result-count > span {
+  color: #52657a;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.forecast-mapping-controls select,
+.forecast-mapping-controls input {
+  width: 100%;
+  min-height: 42px;
+  box-sizing: border-box;
+  border: 1px solid #cfdae5;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #17324f;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 0.78rem;
+}
+
+.forecast-mapping-result-count {
+  display: grid;
+  gap: 5px;
+  min-width: 94px;
+  padding: 8px 10px;
+  border: 1px solid #dfe7ee;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.forecast-mapping-result-count strong {
+  color: #17324f;
+  font-size: 0.84rem;
+}
+
+.forecast-mapping-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #dfe7ee;
+  border-radius: 10px;
+}
+
+.forecast-mapping-table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+}
+
+.forecast-mapping-table th {
+  padding: 12px 14px;
+  background: #f4f7fa;
+  color: #5d6f82;
+  text-align: left;
+  font-size: 0.66rem;
+  font-weight: 800;
+}
+
+.forecast-mapping-table td {
+  padding: 12px 14px;
+  border-top: 1px solid #e7edf2;
+  color: #344b63;
+  vertical-align: top;
+  font-size: 0.74rem;
+}
+
+.forecast-mapping-table td strong {
+  display: block;
+  color: #203b57;
+  font-size: 0.75rem;
+}
+
+.forecast-mapping-table td small {
+  display: block;
+  margin-top: 3px;
+  color: #8996a4;
+  font-size: 0.62rem;
+  line-height: 1.4;
+}
+
+.forecast-mapping-repeat {
+  color: #9ba8b5;
+  font-weight: 800;
+}
+
+.forecast-mapping-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 7px;
+  border-radius: 999px;
+  font-size: 0.58rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.forecast-mapping-status-ready {
+  border: 1px solid #c9dfd2;
+  background: #eef7f1;
+  color: #47705a;
+}
+
+.forecast-mapping-status-waiting {
+  border: 1px solid #ead9d5;
+  background: #fbf5f3;
+  color: #8b635d;
+}
+
+.forecast-mapping-note {
+  margin-top: 12px;
+  padding: 11px 12px;
+  border-left: 3px solid #b7c6d4;
+  background: #f8fafc;
+  color: #738397;
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 800px) {
+  .forecast-mapping-heading {
+    display: grid;
+  }
+
+  .forecast-mapping-development-badge {
+    justify-self: start;
+  }
+
+  .forecast-mapping-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .forecast-mapping-result-count {
+    width: fit-content;
+  }
+}

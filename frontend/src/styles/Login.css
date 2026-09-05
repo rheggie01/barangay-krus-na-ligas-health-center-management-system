@@ -1,0 +1,444 @@
+/* =========================================================
+   LOGIN PAGE
+========================================================= */
+
+.login-page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow-y: auto;
+}
+
+
+/* =========================================================
+   BACKGROUND OVERLAY
+========================================================= */
+
+.login-background-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  background: rgba(12, 37, 58, 0.05);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.login-card {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 590px;
+
+  padding: 38px 48px 24px;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.58);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.72);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 22px 60px
+    rgba(15, 23, 42, 0.18);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.login-brand {
+  margin-bottom: 32px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   KRUS NA LIGAS LOGO
+========================================================= */
+
+.login-logo {
+  width: 116px;
+  height: 116px;
+
+  margin:
+    0 auto
+    18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border:
+    3px solid
+    rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    0 8px 24px
+    rgba(15, 23, 42, 0.16);
+}
+
+
+.login-logo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   BRAND TEXT
+========================================================= */
+
+.login-brand h1 {
+  margin: 0;
+
+  color: #17395a;
+
+  font-size: 31px;
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+
+.login-brand p {
+  margin: 10px 0 0;
+
+  color: #657a8f;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   LOGIN HEADING
+========================================================= */
+
+.login-heading {
+  margin-bottom: 26px;
+}
+
+
+.login-heading h2 {
+  margin: 0 0 7px;
+
+  color: #17395a;
+
+  font-size: 27px;
+  font-weight: 800;
+}
+
+
+.login-heading p {
+  margin: 0;
+
+  color: #657a8f;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+.login-field label {
+  color: #344b65;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.login-field input {
+  width: 100%;
+  min-height: 58px;
+
+  padding: 0 17px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(181, 199, 217, 0.9);
+
+  border-radius: 12px;
+
+  background:
+    rgba(235, 243, 252, 0.78);
+
+  color: #172033;
+
+  font-size: 16px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.login-field input:focus {
+  border-color: #315f89;
+
+  background:
+    rgba(255, 255, 255, 0.92);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(49, 95, 137, 0.12);
+}
+
+
+/* =========================================================
+   DATA PRIVACY
+========================================================= */
+
+.login-privacy {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  color: #526a81;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  cursor: pointer;
+}
+
+
+.login-privacy input {
+  width: 20px;
+  height: 20px;
+
+  margin-top: 1px;
+
+  flex-shrink: 0;
+
+  accent-color: #1e4b73;
+}
+
+
+.login-privacy strong {
+  color: #17395a;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.login-error {
+  padding: 13px 15px;
+
+  border:
+    1px solid
+    rgba(239, 68, 68, 0.28);
+
+  border-radius: 10px;
+
+  background:
+    rgba(254, 242, 242, 0.9);
+
+  color: #b91c1c;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.login-button {
+  width: 100%;
+  min-height: 60px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: #1e4b73;
+
+  color: #ffffff;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+.login-button:hover:not(:disabled) {
+  background: #163b5d;
+
+  transform:
+    translateY(-1px);
+}
+
+
+.login-button:disabled {
+  cursor: not-allowed;
+
+  background: #8ba0b4;
+
+  opacity: 0.9;
+}
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
+
+.login-register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-top: 27px;
+
+  color: #64798e;
+
+  font-size: 14px;
+}
+
+
+.login-register a {
+  color: #17395a;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+
+.login-register a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.login-footer {
+  margin-top: 27px;
+  padding-top: 21px;
+
+  border-top:
+    1px solid
+    rgba(195, 208, 221, 0.65);
+
+  color: #7e91a4;
+
+  font-size: 13px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .login-page {
+    align-items: flex-start;
+
+    padding: 18px 14px;
+  }
+
+
+  .login-card {
+    padding: 32px 26px 22px;
+
+    border-radius: 20px;
+  }
+
+
+  .login-logo {
+    width: 94px;
+    height: 94px;
+  }
+
+
+  .login-brand h1 {
+    font-size: 27px;
+  }
+
+
+  .login-heading h2 {
+    font-size: 24px;
+  }
+
+}
