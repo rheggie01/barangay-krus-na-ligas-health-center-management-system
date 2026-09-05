@@ -24,3 +24,6 @@ Thumbs.db
 backend/app/ml/artifacts/*
 !backend/app/ml/artifacts/.gitkeep
 database_backups/
+
+# Local backup machine configuration
+scripts/backup/backup-settings.local.json

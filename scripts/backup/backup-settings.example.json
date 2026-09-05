@@ -1,0 +1,23 @@
+{
+  "BackupRoot": "database_backups",
+  "ScheduleTime": "22:00",
+  "Retention": {
+    "Daily": 7,
+    "Weekly": 4,
+    "Monthly": 6
+  },
+  "MySQL": {
+    "DumpExecutable": "",
+    "ClientExecutable": ""
+  },
+  "Encryption": {
+    "Enabled": false,
+    "SevenZipExecutable": "",
+    "SecretFile": "database_backups/.backup-secret.dpapi"
+  },
+  "Cloud": {
+    "Enabled": false,
+    "Path": "",
+    "AllowUnencryptedCopy": false
+  }
+}
