@@ -1,0 +1,113 @@
+PHASE 11.6 — REPOSITORY QUALITY & COLLABORATION HARDENING
+================================================================
+
+PURPOSE
+-------
+Improve repository documentation, collaboration consistency, Git line
+endings, local quality checks, and basic CI without changing the database
+schema.
+
+ADDED
+-----
+README.md
+CONTRIBUTING.md
+.gitattributes
+.github/workflows/quality.yml
+.github/pull_request_template.md
+scripts/repo-quality-check.ps1
+
+REPLACED
+--------
+.gitignore
+backend/.env.example
+frontend/README.md
+
+NO DATABASE MIGRATION
+---------------------
+Phase 11.6 does not add or alter database tables.
+
+IMPORTANT CARRYOVER FIX
+-----------------------
+backend/.env.example now includes JWT_SECRET_KEY. The current public version
+reviewed before this patch did not contain that required setting.
+
+STALE EMPTY MODEL FILES
+-----------------------
+The current repository contains these empty files:
+
+backend/app/models/inventory.py
+backend/app/models/medicine_inventory.py
+
+Do NOT delete them blindly.
+
+First run from the project root:
+
+Get-ChildItem .\backend\app -Recurse -Filter *.py |
+    Select-String "app\.models\.inventory|app\.models\.medicine_inventory"
+
+If there is no legitimate import/output, remove them:
+
+Remove-Item .\backend\app\models\inventory.py
+Remove-Item .\backend\app\models\medicine_inventory.py
+
+Then run the repository quality check.
+
+APPLY
+-----
+Extract this ZIP into:
+
+C:\Users\PC\Desktop\barangay-health-system
+
+Allow replacement of the listed files.
+
+Then:
+
+cd C:\Users\PC\Desktop\barangay-health-system
+.\scripts\repo-quality-check.ps1
+
+If PowerShell blocks the script:
+
+Set-ExecutionPolicy -Scope Process Bypass
+.\scripts\repo-quality-check.ps1
+
+GIT
+---
+git status
+git add .
+git status
+
+Review the staged list.
+
+Then:
+
+git commit -m "Phase 11.6: harden repository quality and collaboration"
+git push
+
+GITHUB ACTIONS
+--------------
+After push, open the repository's Actions tab.
+
+Expected checks:
+- Backend Python Syntax
+- Frontend Production Build
+
+Both should be green before considering Phase 11.6 complete.
+
+LINE ENDINGS
+------------
+.gitattributes standardizes source files as LF and PowerShell scripts as
+CRLF. This is intended to reduce future Windows LF/CRLF warnings and noisy
+team diffs.
+
+NEXT PHASE
+----------
+Phase 12 — Automated Backup & Recovery
+
+Planned scope:
+- automatic timestamped MySQL backup
+- daily / weekly / monthly retention
+- encrypted off-device/cloud copy strategy
+- backup logs and SUCCESS/FAILED status
+- Windows Task Scheduler installation
+- restore verification workflow
+- power-loss recovery / auto-start deployment runbook

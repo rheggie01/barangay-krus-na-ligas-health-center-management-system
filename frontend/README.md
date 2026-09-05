@@ -1,16 +1,40 @@
-# React + Vite
+# Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React/Vite frontend for the Barangay Krus na Ligas Health Center Management System.
 
-Currently, two official plugins are available:
+## Main Responsibilities
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The frontend provides authorized interfaces for:
 
-## React Compiler
+- Authentication
+- Patient management
+- Consultations
+- Disease surveillance
+- Forecasting
+- Medicine inventory and dispensing
+- Reports
+- User administration
+- Audit-related views
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Security-sensitive authorization is enforced by the backend. Hiding a button or page in the frontend is not considered sufficient access control.
 
-## Expanding the ESLint configuration
+## Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Run these commands inside the frontend folder:
+
+npm install
+Copy-Item .env.example .env
+npm run dev
+
+Typical development URL: http://localhost:5173
+
+## Production Build
+
+npm run build
+
+The repository quality checks and GitHub Actions verify that the frontend can build successfully.
+
+## Environment Variables
+
+Use frontend/.env.example as the template for local configuration.
+Do not commit the real frontend/.env file.
