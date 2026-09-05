@@ -5,6 +5,7 @@ import { hasPageAccess } from "../utils/permissions";
 
 import krusNaLigasLogo from "../assets/krus-na-ligas-logo.jpg";
 
+
 const NAV_ITEMS = [
   {
     key: "dashboard",
@@ -51,19 +52,37 @@ const NAV_ITEMS = [
     path: "/audit-logs",
     label: "Audit Logs",
   },
+  {
+    key: "backupRecovery",
+    path: "/backup-recovery",
+    label: "Backup & Recovery",
+  },
 ];
+
 
 function Sidebar() {
   const { user } = useAuth();
 
-  const roles = Array.isArray(user?.roles) ? user.roles : [];
+  const roles = Array.isArray(
+    user?.roles
+  )
+    ? user.roles
+    : [];
 
-  const visibleItems = NAV_ITEMS.filter((item) =>
-    hasPageAccess(roles, item.key)
+  const visibleItems = NAV_ITEMS.filter(
+    (item) =>
+      hasPageAccess(
+        roles,
+        item.key
+      )
   );
 
-  const getLinkClass = ({ isActive }) =>
-    `sidebar-link${isActive ? " active" : ""}`;
+  const getLinkClass = ({
+    isActive,
+  }) =>
+    `sidebar-link${
+      isActive ? " active" : ""
+    }`;
 
   return (
     <aside className="sidebar">
@@ -82,7 +101,9 @@ function Sidebar() {
             Center
           </strong>
 
-          <span>Management System</span>
+          <span>
+            Management System
+          </span>
         </div>
       </div>
 
@@ -104,11 +125,17 @@ function Sidebar() {
       </nav>
 
       <div className="sidebar-footer">
-        <span>Krus na Ligas Health Center</span>
-        <small>Health Information System</small>
+        <span>
+          Krus na Ligas Health Center
+        </span>
+
+        <small>
+          Health Information System
+        </small>
       </div>
     </aside>
   );
 }
+
 
 export default Sidebar;

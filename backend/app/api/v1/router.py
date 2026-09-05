@@ -9,6 +9,9 @@ from app.api.v1.endpoints.auth import (
 from app.api.v1.endpoints.audit_logs import (
     router as audit_logs_router,
 )
+from app.api.v1.endpoints.backup_recovery import (
+    router as backup_recovery_router,
+)
 from app.api.v1.endpoints.consultations import (
     router as consultations_router,
 )
@@ -77,6 +80,12 @@ api_router.include_router(
     admin_router,
     prefix="/admin",
     tags=["Administration"],
+)
+
+api_router.include_router(
+    backup_recovery_router,
+    prefix="/backup-recovery",
+    tags=["Backup & Recovery"],
 )
 
 api_router.include_router(

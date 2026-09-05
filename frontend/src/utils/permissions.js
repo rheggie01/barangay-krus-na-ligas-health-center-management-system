@@ -14,6 +14,7 @@ export const ROLE_ACCESS = {
     "reports",
     "users",
     "auditLogs",
+    "backupRecovery",
   ],
 
   HEALTH_CENTER_ADMIN: [
@@ -27,6 +28,7 @@ export const ROLE_ACCESS = {
     "reports",
     "users",
     "auditLogs",
+    "backupRecovery",
   ],
 
   DOCTOR: [
@@ -130,8 +132,8 @@ export const hasAnyPermission = (
   if (
     !Array.isArray(
       requiredPermissions
-    ) ||
-    requiredPermissions.length === 0
+    )
+    || requiredPermissions.length === 0
   ) {
     return true;
   }
@@ -157,8 +159,8 @@ export const hasAllPermissions = (
   if (
     !Array.isArray(
       requiredPermissions
-    ) ||
-    requiredPermissions.length === 0
+    )
+    || requiredPermissions.length === 0
   ) {
     return true;
   }

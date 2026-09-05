@@ -5,8 +5,8 @@ import {
 } from "react-router-dom";
 
 import MainLayout from "./layouts/MainLayout";
-
 import AuditLogs from "./pages/AuditLogs";
+import BackupRecovery from "./pages/BackupRecovery";
 import ConsultationDetails from "./pages/ConsultationDetails";
 import Consultations from "./pages/Consultations";
 import Dashboard from "./pages/Dashboard";
@@ -19,7 +19,6 @@ import Register from "./pages/Register";
 import Reports from "./pages/Reports";
 import Surveillance from "./pages/Surveillance";
 import Users from "./pages/Users";
-
 import ProtectedRoute from "./routes/ProtectedRoute";
 import RoleProtectedRoute from "./routes/RoleProtectedRoute";
 
@@ -29,11 +28,6 @@ import "./App.css";
 function App() {
   return (
     <Routes>
-
-      {/* =====================================================
-          PUBLIC ROUTES
-      ====================================================== */}
-
       <Route
         path="/login"
         element={<Login />}
@@ -44,11 +38,6 @@ function App() {
         element={<Register />}
       />
 
-
-      {/* =====================================================
-          PROTECTED APPLICATION
-      ====================================================== */}
-
       <Route
         element={
           <ProtectedRoute>
@@ -56,11 +45,6 @@ function App() {
           </ProtectedRoute>
         }
       >
-
-        {/* =================================================
-            DASHBOARD
-        ================================================== */}
-
         <Route
           path="/dashboard"
           element={
@@ -69,11 +53,6 @@ function App() {
             </RoleProtectedRoute>
           }
         />
-
-
-        {/* =================================================
-            PATIENT MANAGEMENT
-        ================================================== */}
 
         <Route
           path="/patients"
@@ -93,11 +72,6 @@ function App() {
           }
         />
 
-
-        {/* =================================================
-            CONSULTATIONS
-        ================================================== */}
-
         <Route
           path="/consultations"
           element={
@@ -116,11 +90,6 @@ function App() {
           }
         />
 
-
-        {/* =================================================
-            DISEASE SURVEILLANCE
-        ================================================== */}
-
         <Route
           path="/surveillance"
           element={
@@ -129,11 +98,6 @@ function App() {
             </RoleProtectedRoute>
           }
         />
-
-
-        {/* =================================================
-            MEDICINE INVENTORY
-        ================================================== */}
 
         <Route
           path="/inventory"
@@ -144,11 +108,6 @@ function App() {
           }
         />
 
-
-        {/* =================================================
-            FORECASTS
-        ================================================== */}
-
         <Route
           path="/forecasts"
           element={
@@ -157,11 +116,6 @@ function App() {
             </RoleProtectedRoute>
           }
         />
-
-
-        {/* =================================================
-            REPORTS
-        ================================================== */}
 
         <Route
           path="/reports"
@@ -172,11 +126,6 @@ function App() {
           }
         />
 
-
-        {/* =================================================
-            USER MANAGEMENT
-        ================================================== */}
-
         <Route
           path="/users"
           element={
@@ -185,11 +134,6 @@ function App() {
             </RoleProtectedRoute>
           }
         />
-
-
-        {/* =================================================
-            AUDIT LOGS
-        ================================================== */}
 
         <Route
           path="/audit-logs"
@@ -200,12 +144,15 @@ function App() {
           }
         />
 
+        <Route
+          path="/backup-recovery"
+          element={
+            <RoleProtectedRoute page="backupRecovery">
+              <BackupRecovery />
+            </RoleProtectedRoute>
+          }
+        />
       </Route>
-
-
-      {/* =====================================================
-          DEFAULT ROUTE
-      ====================================================== */}
 
       <Route
         path="/"
@@ -217,11 +164,6 @@ function App() {
         }
       />
 
-
-      {/* =====================================================
-          UNKNOWN ROUTES
-      ====================================================== */}
-
       <Route
         path="*"
         element={
@@ -231,7 +173,6 @@ function App() {
           />
         }
       />
-
     </Routes>
   );
 }
