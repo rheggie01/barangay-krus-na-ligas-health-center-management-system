@@ -65,3 +65,11 @@ def root():
         ),
         "environment": settings.APP_ENV,
     }
+
+
+@app.get("/health", tags=["Health"])
+def health_check():
+    return {
+        "status": "ok",
+        "service": "barangay-health-center-api",
+    }
