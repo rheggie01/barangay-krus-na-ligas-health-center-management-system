@@ -29,6 +29,7 @@ from app.services.user_service import (
     delete_pending_user,
     get_user_by_id,
     get_users,
+    soft_delete_inactive_user,
     transition_user_account,
 )
 
@@ -50,6 +51,9 @@ def user_to_response(user: User) -> UserResponse:
         last_name=user.last_name,
         account_status=account_status,
         is_active=user.is_active,
+        is_deleted=getattr(user, "is_deleted", False),
+        deleted_at=getattr(user, "deleted_at", None),
+        deleted_by=getattr(user, "deleted_by", None),
         status_changed_at=user.status_changed_at,
         status_changed_by=user.status_changed_by,
         status_changed_by_name_snapshot=(
@@ -105,6 +109,53 @@ def _protect_last_system_admin(
             detail=(
                 "The last active System Administrator "
                 "cannot be deactivated."
+            ),
+        )
+
+
+def _protect_last_remaining_system_admin(
+    db: Session,
+    user: User,
+) -> None:
+    is_system_admin = any(
+        role.name == "SYSTEM_ADMIN"
+        for role in user.roles
+    )
+
+    if not is_system_admin:
+        return
+
+    filters = [
+        Role.name == "SYSTEM_ADMIN",
+    ]
+
+    is_deleted_column = getattr(
+        User,
+        "is_deleted",
+        None,
+    )
+
+    if is_deleted_column is not None:
+        filters.insert(
+            0,
+            is_deleted_column.is_(False),
+        )
+
+    remaining_system_admins = (
+        db.scalar(
+            select(func.count(User.id))
+            .join(User.roles)
+            .where(*filters)
+        )
+        or 0
+    )
+
+    if remaining_system_admins <= 1:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=(
+                "The last remaining System Administrator "
+                "account cannot be deleted."
             ),
         )
 
@@ -310,6 +361,75 @@ def reactivate_user(
         )
 
         return _commit_and_reload(db, user)
+
+    except ValueError as exc:
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(exc),
+        )
+
+
+@router.delete(
+    "/{user_id}",
+    status_code=status.HTTP_204_NO_CONTENT,
+)
+def delete_inactive_staff_account(
+    user_id: int,
+    request: Request,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(
+        require_permission("USER_MANAGE")
+    ),
+):
+    user = _require_target_user(db, user_id)
+
+    if user.id == current_user.id:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="You cannot delete your own account.",
+        )
+
+    _protect_last_remaining_system_admin(
+        db,
+        user,
+    )
+
+    username = user.username
+    full_name = (
+        f"{user.first_name} {user.last_name}".strip()
+    )
+
+    try:
+        soft_delete_inactive_user(
+            db,
+            user=user,
+            deleted_by=current_user,
+        )
+
+        create_audit_log(
+            db,
+            action="USER_SOFT_DELETE",
+            module="ADMINISTRATION",
+            user=current_user,
+            record_id=user.id,
+            subject_label_snapshot=(
+                f"@{username} | {full_name}"
+            ),
+            description=(
+                "Soft-deleted inactive staff account "
+                f"@{username}. Historical clinical, "
+                "inventory, dispensing, and audit records "
+                "were preserved."
+            ),
+            ip_address=get_request_ip(request),
+        )
+
+        db.commit()
+
+        return Response(
+            status_code=status.HTTP_204_NO_CONTENT
+        )
 
     except ValueError as exc:
         db.rollback()

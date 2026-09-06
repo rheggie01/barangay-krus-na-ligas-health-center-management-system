@@ -57,7 +57,8 @@ def get_current_user(
         )
 
     if (
-        user.account_status != "ACTIVE"
+        getattr(user, "is_deleted", False)
+        or user.account_status != "ACTIVE"
         or not user.is_active
     ):
         raise HTTPException(

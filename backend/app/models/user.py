@@ -12,20 +12,37 @@ class User(Base):
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
 
     username: Mapped[str] = mapped_column(
-        String(50), unique=True, nullable=False, index=True
+        String(50),
+        unique=True,
+        nullable=False,
+        index=True,
     )
 
     email: Mapped[str] = mapped_column(
-        String(255), unique=True, nullable=False, index=True
+        String(255),
+        unique=True,
+        nullable=False,
+        index=True,
     )
 
-    password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
+    password_hash: Mapped[str] = mapped_column(
+        String(255),
+        nullable=False,
+    )
 
-    first_name: Mapped[str] = mapped_column(String(100), nullable=False)
-    last_name: Mapped[str] = mapped_column(String(100), nullable=False)
+    first_name: Mapped[str] = mapped_column(
+        String(100),
+        nullable=False,
+    )
 
-    # PENDING = never approved, ACTIVE = login allowed,
-    # INACTIVE = previously approved but access disabled.
+    last_name: Mapped[str] = mapped_column(
+        String(100),
+        nullable=False,
+    )
+
+    # PENDING = never approved
+    # ACTIVE = login allowed
+    # INACTIVE = previously approved but access disabled
     account_status: Mapped[str] = mapped_column(
         String(20),
         nullable=False,
@@ -34,32 +51,66 @@ class User(Base):
         index=True,
     )
 
-    # Backward-compatible login flag. Lifecycle services keep it
-    # synchronized with account_status.
+    # Backward-compatible login flag.
+    # Lifecycle services keep it synchronized with account_status.
     is_active: Mapped[bool] = mapped_column(
-        Boolean, default=True, nullable=False
+        Boolean,
+        default=True,
+        nullable=False,
     )
 
     status_changed_at: Mapped[datetime | None] = mapped_column(
-        DateTime, nullable=True
+        DateTime,
+        nullable=True,
     )
 
     status_changed_by: Mapped[int | None] = mapped_column(
-        Integer, nullable=True, index=True
+        Integer,
+        nullable=True,
+        index=True,
     )
 
     status_changed_by_name_snapshot: Mapped[str | None] = mapped_column(
-        String(201), nullable=True
+        String(201),
+        nullable=True,
     )
 
     status_changed_by_role_snapshot: Mapped[str | None] = mapped_column(
-        String(255), nullable=True
+        String(255),
+        nullable=True,
     )
 
-    last_login: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    # Soft-delete / archive fields.
+    # Deleted accounts remain in the database so historical
+    # transactions and audit references are preserved.
+    is_deleted: Mapped[bool] = mapped_column(
+        Boolean,
+        default=False,
+        server_default="0",
+        nullable=False,
+        index=True,
+    )
+
+    deleted_at: Mapped[datetime | None] = mapped_column(
+        DateTime,
+        nullable=True,
+    )
+
+    deleted_by: Mapped[int | None] = mapped_column(
+        Integer,
+        nullable=True,
+        index=True,
+    )
+
+    last_login: Mapped[datetime | None] = mapped_column(
+        DateTime,
+        nullable=True,
+    )
 
     created_at: Mapped[datetime] = mapped_column(
-        DateTime, server_default=func.now(), nullable=False
+        DateTime,
+        server_default=func.now(),
+        nullable=False,
     )
 
     updated_at: Mapped[datetime] = mapped_column(

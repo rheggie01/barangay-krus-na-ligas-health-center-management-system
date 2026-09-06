@@ -8,11 +8,23 @@ AccountStatusValue = Literal["PENDING", "ACTIVE", "INACTIVE"]
 
 
 class UserCreate(BaseModel):
-    username: str = Field(min_length=3, max_length=50)
+    username: str = Field(
+        min_length=3,
+        max_length=50,
+    )
     email: EmailStr
-    password: str = Field(min_length=8, max_length=128)
-    first_name: str = Field(min_length=1, max_length=100)
-    last_name: str = Field(min_length=1, max_length=100)
+    password: str = Field(
+        min_length=8,
+        max_length=128,
+    )
+    first_name: str = Field(
+        min_length=1,
+        max_length=100,
+    )
+    last_name: str = Field(
+        min_length=1,
+        max_length=100,
+    )
     role_names: list[str]
 
 
@@ -25,6 +37,11 @@ class UserResponse(BaseModel):
 
     account_status: AccountStatusValue
     is_active: bool
+
+    # Soft-delete / archive information.
+    is_deleted: bool = False
+    deleted_at: datetime | None = None
+    deleted_by: int | None = None
 
     status_changed_at: datetime | None = None
     status_changed_by: int | None = None
