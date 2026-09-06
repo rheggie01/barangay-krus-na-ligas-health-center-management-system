@@ -7,6 +7,7 @@ import {
 import {
   approveUser,
   deactivateUser,
+  deleteInactiveUser,
   deletePendingUser,
   getUsers,
   reactivateUser,
@@ -64,6 +65,11 @@ function Users() {
   const [
     deletingUser,
     setDeletingUser,
+  ] = useState(null);
+
+  const [
+    deleteMode,
+    setDeleteMode,
   ] = useState(null);
 
   const [
@@ -187,6 +193,10 @@ function Users() {
           setDeletingUser(
             null
           );
+
+          setDeleteMode(
+            null
+          );
         }
       };
 
@@ -210,6 +220,40 @@ function Users() {
       updatingUserId,
     ]
   );
+
+
+  const openDeleteDialog = (
+    targetUser,
+    mode
+  ) => {
+    clearMessages();
+
+    setDeletingUser(
+      targetUser
+    );
+
+    setDeleteMode(
+      mode
+    );
+  };
+
+
+  const closeDeleteDialog = () => {
+    if (
+      updatingUserId
+        != null
+    ) {
+      return;
+    }
+
+    setDeletingUser(
+      null
+    );
+
+    setDeleteMode(
+      null
+    );
+  };
 
 
   const replaceUpdatedUser = (
@@ -341,10 +385,12 @@ function Users() {
     };
 
 
-  const confirmPendingDelete =
+  const confirmDelete =
     async () => {
       if (
         !deletingUser
+        ||
+        !deleteMode
       ) {
         return;
       }
@@ -356,9 +402,23 @@ function Users() {
           deletingUser.id
         );
 
-        await deletePendingUser(
-          deletingUser.id
-        );
+        if (
+          deleteMode ===
+          "PENDING"
+        ) {
+          await deletePendingUser(
+            deletingUser.id
+          );
+        }
+
+        if (
+          deleteMode ===
+          "INACTIVE"
+        ) {
+          await deleteInactiveUser(
+            deletingUser.id
+          );
+        }
 
         const displayName =
           `${deletingUser.first_name} ${deletingUser.last_name}`
@@ -373,11 +433,29 @@ function Users() {
             )
         );
 
-        setSuccess(
-          `${displayName}'s never-approved account request was permanently deleted.`
-        );
+        if (
+          deleteMode ===
+          "PENDING"
+        ) {
+          setSuccess(
+            `${displayName}'s never-approved account request was permanently deleted.`
+          );
+        }
+
+        if (
+          deleteMode ===
+          "INACTIVE"
+        ) {
+          setSuccess(
+            `${displayName}'s inactive account was archived. Login access remains disabled and historical records were preserved.`
+          );
+        }
 
         setDeletingUser(
+          null
+        );
+
+        setDeleteMode(
           null
         );
 
@@ -389,7 +467,12 @@ function Users() {
             ?.data
             ?.detail
           ||
-          "Unable to delete pending account request."
+          (
+            deleteMode ===
+              "INACTIVE"
+              ? "Unable to archive inactive staff account."
+              : "Unable to delete pending account request."
+          )
         );
 
       } finally {
@@ -398,7 +481,6 @@ function Users() {
         );
       }
     };
-
 
   const pendingUsers =
     useMemo(
@@ -569,7 +651,11 @@ function Users() {
             )
         }
         onDeleteRequest={
-          setDeletingUser
+          (user) =>
+            openDeleteDialog(
+              user,
+              "PENDING"
+            )
         }
       />
 
@@ -613,6 +699,13 @@ function Users() {
               "REACTIVATE"
             )
         }
+        onDeleteInactive={
+          (user) =>
+            openDeleteDialog(
+              user,
+              "INACTIVE"
+            )
+        }
       />
 
 
@@ -634,6 +727,10 @@ function Users() {
                   setDeletingUser(
                     null
                   );
+
+                  setDeleteMode(
+                    null
+                  );
                 }
               }
             }
@@ -647,24 +744,63 @@ function Users() {
             >
 
               <h2 id="delete-account-request-title">
-                Delete Pending Account Request?
+                {
+                  deleteMode ===
+                    "INACTIVE"
+                    ? "Delete Inactive Staff Account?"
+                    : "Delete Pending Account Request?"
+                }
               </h2>
 
               <p>
-                This permanently removes
-                the never-approved request for{" "}
-                <strong>
-                  @{deletingUser.username}
-                </strong>.
+                {
+                  deleteMode ===
+                    "INACTIVE"
+                    ? (
+                      <>
+                        This will archive the inactive
+                        account for{" "}
+                        <strong>
+                          @{deletingUser.username}
+                        </strong>.
+                      </>
+                    )
+                    : (
+                      <>
+                        This permanently removes
+                        the never-approved request for{" "}
+                        <strong>
+                          @{deletingUser.username}
+                        </strong>.
+                      </>
+                    )
+                }
               </p>
 
               <div className="users-confirm-warning">
-                Approved or previously active
-                staff accounts cannot be deleted
-                by this workflow because their
-                clinical, dispensing, inventory,
-                and audit history must remain
-                attributable.
+                {
+                  deleteMode ===
+                    "INACTIVE"
+                    ? (
+                      <>
+                        This is a soft delete. The account
+                        will disappear from normal user
+                        management and cannot be reactivated
+                        through the standard workflow.
+                        Historical clinical, dispensing,
+                        inventory, and audit records remain
+                        preserved and attributable.
+                      </>
+                    )
+                    : (
+                      <>
+                        This hard-delete workflow is only
+                        for never-approved PENDING account
+                        requests with no linked operational
+                        or audit actor records.
+                      </>
+                    )
+                }
               </div>
 
               <div className="users-confirm-actions">
@@ -673,10 +809,7 @@ function Users() {
                   type="button"
                   className="app-button app-button-secondary"
                   onClick={
-                    () =>
-                      setDeletingUser(
-                        null
-                      )
+                    closeDeleteDialog
                   }
                   disabled={
                     updatingUserId ===
@@ -691,7 +824,7 @@ function Users() {
                   type="button"
                   className="app-button app-button-danger"
                   onClick={
-                    confirmPendingDelete
+                    confirmDelete
                   }
                   disabled={
                     updatingUserId ===
@@ -702,7 +835,12 @@ function Users() {
                     updatingUserId ===
                       deletingUser.id
                       ? "Deleting..."
-                      : "Delete Request"
+                      : (
+                        deleteMode ===
+                          "INACTIVE"
+                          ? "Delete Account"
+                          : "Delete Request"
+                      )
                   }
                 </button>
 
@@ -734,6 +872,7 @@ function UserSection({
   onDeleteRequest,
   onDeactivate,
   onReactivate,
+  onDeleteInactive,
 }) {
   return (
     <section className="users-card">
@@ -795,6 +934,7 @@ function UserSection({
                 onDeleteRequest={onDeleteRequest}
                 onDeactivate={onDeactivate}
                 onReactivate={onReactivate}
+                onDeleteInactive={onDeleteInactive}
               />
             )
       }
@@ -814,6 +954,7 @@ function UserTable({
   onDeleteRequest,
   onDeactivate,
   onReactivate,
+  onDeleteInactive,
 }) {
   return (
     <div className="users-table-wrap">
@@ -971,27 +1112,46 @@ function UserTable({
                         {
                           status === "INACTIVE"
                           && (
-                            <button
-                              type="button"
-                              className="app-button app-button-primary app-button-small"
-                              disabled={
-                                updatingUserId ===
-                                  user.id
-                              }
-                              onClick={
-                                () =>
-                                  onReactivate(
-                                    user
-                                  )
-                              }
-                            >
-                              {
-                                updatingUserId ===
-                                  user.id
-                                  ? "Reactivating..."
-                                  : "Reactivate"
-                              }
-                            </button>
+                            <>
+                              <button
+                                type="button"
+                                className="app-button app-button-primary app-button-small"
+                                disabled={
+                                  updatingUserId ===
+                                    user.id
+                                }
+                                onClick={
+                                  () =>
+                                    onReactivate(
+                                      user
+                                    )
+                                }
+                              >
+                                {
+                                  updatingUserId ===
+                                    user.id
+                                    ? "Updating..."
+                                    : "Reactivate"
+                                }
+                              </button>
+
+                              <button
+                                type="button"
+                                className="app-button app-button-danger app-button-small"
+                                disabled={
+                                  updatingUserId ===
+                                    user.id
+                                }
+                                onClick={
+                                  () =>
+                                    onDeleteInactive(
+                                      user
+                                    )
+                                }
+                              >
+                                Delete Account
+                              </button>
+                            </>
                           )
                         }
 

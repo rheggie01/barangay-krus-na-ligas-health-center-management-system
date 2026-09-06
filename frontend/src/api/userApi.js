@@ -50,6 +50,18 @@ export const reactivateUser =
   };
 
 
+export const deleteInactiveUser =
+  async (
+    userId
+  ) => {
+    await api.delete(
+      `/users/${userId}`
+    );
+
+    return true;
+  };
+
+
 export const deletePendingUser =
   async (
     userId

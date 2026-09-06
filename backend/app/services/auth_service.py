@@ -26,7 +26,8 @@ def authenticate_user(
         return None
 
     if (
-        user.account_status != "ACTIVE"
+        getattr(user, "is_deleted", False)
+        or user.account_status != "ACTIVE"
         or not user.is_active
     ):
         return None

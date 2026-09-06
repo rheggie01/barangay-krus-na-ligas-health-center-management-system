@@ -34,17 +34,30 @@ def get_users(db: Session) -> list[User]:
         db.scalars(
             select(User)
             .options(selectinload(User.roles))
+            .where(User.is_deleted.is_(False))
             .order_by(User.id.asc())
         ).all()
     )
 
 
-def get_user_by_id(db: Session, user_id: int) -> User | None:
-    return db.scalar(
+def get_user_by_id(
+    db: Session,
+    user_id: int,
+    *,
+    include_deleted: bool = False,
+) -> User | None:
+    statement = (
         select(User)
         .options(selectinload(User.roles))
         .where(User.id == user_id)
     )
+
+    if not include_deleted:
+        statement = statement.where(
+            User.is_deleted.is_(False)
+        )
+
+    return db.scalar(statement)
 
 
 def create_user(
@@ -94,6 +107,7 @@ def create_user(
         last_name=data.last_name.strip(),
         account_status=ACCOUNT_ACTIVE,
         is_active=True,
+        is_deleted=False,
     )
 
     user.roles = roles
@@ -116,6 +130,12 @@ def transition_user_account(
     changed_by: User,
 ) -> User:
     target_status = str(new_status).strip().upper()
+
+    if getattr(user, "is_deleted", False):
+        raise ValueError(
+            "Deleted staff accounts cannot be reactivated "
+            "or changed."
+        )
 
     if target_status not in VALID_ACCOUNT_STATUSES:
         raise ValueError("Invalid account status.")
@@ -148,6 +168,50 @@ def transition_user_account(
     user.status_changed_by = changed_by.id
     user.status_changed_by_name_snapshot = actor["display_name"]
     user.status_changed_by_role_snapshot = actor["role_names"]
+
+    db.flush()
+    return user
+
+
+def soft_delete_inactive_user(
+    db: Session,
+    *,
+    user: User,
+    deleted_by: User,
+) -> User:
+    if user.id == deleted_by.id:
+        raise ValueError(
+            "You cannot delete your own account."
+        )
+
+    if getattr(user, "is_deleted", False):
+        raise ValueError(
+            "This staff account has already been deleted."
+        )
+
+    status_value = (
+        user.account_status
+        or (
+            ACCOUNT_ACTIVE
+            if user.is_active
+            else ACCOUNT_PENDING
+        )
+    )
+
+    if (
+        status_value != ACCOUNT_INACTIVE
+        or user.is_active
+    ):
+        raise ValueError(
+            "Only INACTIVE staff accounts can be deleted. "
+            "Deactivate the account first."
+        )
+
+    user.is_deleted = True
+    user.deleted_at = datetime.now()
+    user.deleted_by = deleted_by.id
+    user.account_status = ACCOUNT_INACTIVE
+    user.is_active = False
 
     db.flush()
     return user
